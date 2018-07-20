@@ -1,11 +1,17 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
-
+#include "Entity/BaseEntity/BaseEntity.hpp"
 
 int main(int argc, char* argv[])
 {
     sf::RenderWindow window(sf::VideoMode(850, 500), "Space War", sf::Style::Close);
     window.setFramerateLimit(60);
+
+    sf::Texture tx;
+    tx.loadFromFile("Image.jpg");
+
+    Sw::BaseEntity ba;
+    ba.setTexture(tx);
 
     while (window.isOpen())
     {
@@ -18,6 +24,8 @@ int main(int argc, char* argv[])
         }
 
         window.clear();
+
+        window.draw(ba);
 
         window.display();
     }

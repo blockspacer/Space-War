@@ -11,21 +11,20 @@
 
 namespace Sw
 {
-    class BaseEntity : public sf::Drawable, public sf::Transformable
+    class BaseEntity : public sf::Sprite
     {
     private:
-        sf::Vertex                     m_vertex[4];
-        sf::IntRect                    m_textureRect;
-        const sf::Texture*             m_texture;
+        int            m_currentHP;
+        int            m_maxHP;
 
+        float          m_speedMove;
 
     private:
-        //   Inheritance Function
-        void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
+
 
     public:
-        BaseEntity(sf::Texture* texture);
-        ~BaseEntity() = default;
+        BaseEntity();
+        BaseEntity(const sf::Texture& texture, const sf::IntRect& rectangle);
 
 
         //   Delete functions

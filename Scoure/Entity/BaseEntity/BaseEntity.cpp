@@ -7,16 +7,19 @@
 
 namespace Sw
 {
-    BaseEntity::BaseEntity(sf::Texture* texture) :
-        m_texture(texture)
+    BaseEntity::BaseEntity() :
+        m_currentHP(0),
+        m_maxHP(0),
+        m_speedMove(0.f)
     {
-
     }
 
-    ///////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////
 
-    void BaseEntity::draw(sf::RenderTarget& target, sf::RenderStates states) const
+    BaseEntity::BaseEntity(const sf::Texture& texture, const sf::IntRect& rectangle) :
+        sf::Sprite(texture, rectangle)
     {
-
     }
+
+    /////////////////////////////////////////////////////////
 }
