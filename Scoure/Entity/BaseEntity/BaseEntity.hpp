@@ -7,24 +7,36 @@
 #define _SpaceWar_BaseEntity_HPP_
 
 #include <SFML/Graphics.hpp>
+#include "../../Engine/Graphics/Hitbox.hpp"
 #include "../../Engine/Graphics/Animation.hpp"
 
 namespace Sw
 {
+    
     class BaseEntity : public sf::Sprite
     {
-    private:
-        int            m_currentHP;
-        int            m_maxHP;
+    protected:
+        int                        m_currentHP;
+        int                        m_maxHP;
 
-        float          m_speedMove;
+        float                      m_speedMove;
 
-    private:
-
+        Engine::Hitbox             m_hitbox;
 
     public:
         BaseEntity();
+        BaseEntity(const sf::Texture& texture) = delete;
         BaseEntity(const sf::Texture& texture, const sf::IntRect& rectangle);
+
+        
+        /*
+        **   This function is used to update data of this
+        */
+        virtual void update();
+
+
+        //   Return the pointer of Engine::Hitbox
+        const Engine::Hitbox* getHitbox() const;
 
 
         //   Delete functions
