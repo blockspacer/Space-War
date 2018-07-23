@@ -6,7 +6,7 @@
 #ifndef _SpaceWar_SinValue_HPP_
 #define _SpaceWar_SinValue_HPP_
 
-static double s_sin_value[360] = {  0.0,
+static double s_sin_value[360] =  { 0.0,
                                     0.0174524,
                                     0.0348995,
                                     0.052336,
@@ -365,7 +365,7 @@ static double s_sin_value[360] = {  0.0,
                                     -0.0697565,
                                     -0.052336,
                                     -0.0348995,
-                                    -0.0174524, };
+                                    -0.0174524 };
 
 
 #endif  //   _SpaceWar_SinValue_HPP_

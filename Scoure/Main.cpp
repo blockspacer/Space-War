@@ -2,9 +2,14 @@
 #include <iostream>
 #include <fstream>
 #include "Entity/BaseEntity/BaseEntity.hpp"
+#include <Windows.h>
+#include "Engine/Math/Math.hpp"
+
+#define PI 3.1415928
 
 int main(int argc, char* argv[])
 {
+    /*
     sf::RenderWindow window(sf::VideoMode(850, 500), "Space War", sf::Style::Close);
     window.setFramerateLimit(60);
     sf::Texture tx;
@@ -60,4 +65,12 @@ int main(int argc, char* argv[])
         //std::cout << sp.getRotation() << std::endl;
     }
     return EXIT_SUCCESS;
+    */
+
+    //std::cout << std::cos(90 * PI / 180.0);
+
+    std::cout << Engine::Math::sin(1);
+
+    std::cin.get();
+
 }
