@@ -1,18 +1,38 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
+#include <fstream>
 #include "Entity/BaseEntity/BaseEntity.hpp"
 
 int main(int argc, char* argv[])
 {
     sf::RenderWindow window(sf::VideoMode(850, 500), "Space War", sf::Style::Close);
     window.setFramerateLimit(60);
+    sf::Texture tx;
+    tx.loadFromFile("File.jpg");
+    
+    //sf::Sprite sp;
 
-    Engine::Hitbox A(sf::Vector2f(200.f, 100.f));
-    A.setPosition(300.f, 250.f);
+    Sw::BaseEntity sp;
 
-    Engine::Hitbox B(sf::Vector2f(300.f, 200.f));
-    B.setPosition(500.f, 250.f);
+    sp.setTexture(tx);
 
+    sp.setOrigin(200.f, 200.f);
+
+    sp.setPosition(850 / 2 - 200, 250);
+
+    //sp.rotate(30);
+
+    Sw::BaseEntity spa;
+
+    spa.setTexture(tx);
+
+    spa.setOrigin(200.f, 200.f);
+
+    spa.setPosition(850 / 2 + 300, 250);
+
+    spa.rotate(-60);
+
+    std::cout << std::sin(1.0*3.14159265 /180);
     while (window.isOpen())
     {
         sf::Event event;
@@ -25,16 +45,19 @@ int main(int argc, char* argv[])
 
         window.clear();
 
-        window.draw(A);
+        window.draw(sp);
 
-        window.draw(B);
+        window.draw(spa);
 
         window.display();
 
-        A.rotate(1);
+        //std::cout << sp.getGlobalBounds().left << "     " << sp.getGlobalBounds().top << std::endl;
 
-        B.rotate(-1.5);
+        sp.rotate(1);
+
+        //spa.rotate(-1.5);
+
+        //std::cout << sp.getRotation() << std::endl;
     }
-
     return EXIT_SUCCESS;
 }

@@ -63,6 +63,23 @@ namespace Engine
 
     //////////////////////////////////////////////////////////
 
+    sf::FloatRect Hitbox::getGlobalBounds() const
+    {
+        float width = static_cast<float>(std::abs(this->m_size.x));
+        float height = static_cast<float>(std::abs(this->m_size.y));
+
+        return this->getTransform().transformRect(sf::FloatRect(0.f, 0.f, width, height));
+    }
+
+    //////////////////////////////////////////////////////////
+
+    bool Hitbox::checkCollision(const Hitbox& hitbox)
+    {
+        return true;
+    }
+
+    //////////////////////////////////////////////////////////
+
     void Hitbox::setSize(sf::Vector2f size)
     {
         this->m_size = size;
