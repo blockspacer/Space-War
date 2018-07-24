@@ -5,8 +5,6 @@
 #include <Windows.h>
 #include "Engine/Math/Math.hpp"
 
-#define PI 3.1415928
-
 int main(int argc, char* argv[])
 {
     /*
@@ -67,9 +65,17 @@ int main(int argc, char* argv[])
     return EXIT_SUCCESS;
     */
 
-    //std::cout << std::cos(90 * PI / 180.0);
+    sf::Sprite aa;
+    aa.setRotation(360);
 
-    std::cout << Engine::Math::sin(1);
+    std::cout << aa.getRotation() << std::endl;
+
+    auto a = std::atan(Engine::Math::tan(359)) / PI * 180.0;
+
+    a += 180;
+
+    std::cout << a << std::endl;
+    //std::cout << Engine::Math::tan(60) * 180 / PI;
 
     std::cin.get();
 

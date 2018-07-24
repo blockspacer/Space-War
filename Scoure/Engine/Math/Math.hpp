@@ -9,6 +9,8 @@
 #include <cmath>
 #include "Trigonometric/CosValue.hpp"
 #include "Trigonometric/SinValue.hpp"
+#include "Trigonometric/TanValue.hpp"
+#include "../../Config.hpp"
 
 namespace Engine
 {
@@ -19,6 +21,7 @@ namespace Engine
 
         static double cos(int degrees);
 
+        static double tan(int degrees);
     };
 }
 

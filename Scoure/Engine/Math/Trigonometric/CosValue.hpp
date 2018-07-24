@@ -6,7 +6,9 @@
 #ifndef _SpaceWar_CosValue_HPP_
 #define _SpaceWar_CosValue_HPP_
 
-static double s_cos_value[360] = { 1.0,
+#include "../../../Config.hpp"
+
+static double s_cos_value[360] = {  1.0,
                                     0.999848,
                                     0.999391,
                                     0.99863,
