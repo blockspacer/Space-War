@@ -9,6 +9,7 @@
 #include <SFML/Graphics.hpp>
 #include <vector>
 #include "../System/Clock.hpp"
+#include "../../Config.hpp"
 
 namespace Engine
 {

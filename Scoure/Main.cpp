@@ -1,82 +1,35 @@
-#include <SFML/Graphics.hpp>
+﻿#include <SFML/Graphics.hpp>
 #include <iostream>
-#include <fstream>
-#include "Entity/BaseEntity/BaseEntity.hpp"
-#include <Windows.h>
-#include "Engine/Math/Math.hpp"
+#include "Application.hpp"
+#include "Config.hpp"
 
 int main(int argc, char* argv[])
 {
-    /*
-    sf::RenderWindow window(sf::VideoMode(850, 500), "Space War", sf::Style::Close);
-    window.setFramerateLimit(60);
-    sf::Texture tx;
-    tx.loadFromFile("File.jpg");
-    
-    //sf::Sprite sp;
-
-    Sw::BaseEntity sp;
-
-    sp.setTexture(tx);
-
-    sp.setOrigin(200.f, 200.f);
-
-    sp.setPosition(850 / 2 - 200, 250);
-
-    //sp.rotate(30);
-
-    Sw::BaseEntity spa;
-
-    spa.setTexture(tx);
-
-    spa.setOrigin(200.f, 200.f);
-
-    spa.setPosition(850 / 2 + 300, 250);
-
-    spa.rotate(-60);
-
-    std::cout << std::sin(1.0*3.14159265 /180);
-    while (window.isOpen())
+    if (!sf::Shader::isAvailable())
     {
-        sf::Event event;
 
-        while (window.pollEvent(event))
-        {
-            if (event.type == sf::Event::EventType::Closed)
-                window.close();
-        }
+#ifdef GAME_WINDOW
 
-        window.clear();
+        MessageBox(nullptr, L"Máy bạn không hỗ trợ Shader !!!\nNên bạn không thể chơi game này !!!", L"Thông Báo", MB_ICONHAND);
 
-        window.draw(sp);
+#else
+    #if defined(GAME_LINUX) || defined(GAME_FREEBSD) || defined(GAME_OPENBSD)
 
-        window.draw(spa);
+        std::cout << "Your computer does't support Shader !!!\nYou can't play this game !!!" << std::endl;
 
-        window.display();
+        std::cin.get();
 
-        //std::cout << sp.getGlobalBounds().left << "     " << sp.getGlobalBounds().top << std::endl;
+    #endif
+#endif
 
-        sp.rotate(1);
-
-        //spa.rotate(-1.5);
-
-        //std::cout << sp.getRotation() << std::endl;
+        exit(EXIT_FAILURE);
     }
+
+    Sw::Application* application = new Sw::Application;
+
+    application->run();
+
+    delete application;
+
     return EXIT_SUCCESS;
-    */
-
-    sf::Sprite aa;
-    aa.setRotation(360);
-
-    std::cout << aa.getRotation() << std::endl;
-
-    auto a = std::atan(Engine::Math::tan(359)) / PI * 180.0;
-
-    a += 180;
-
-    std::cout << a << std::endl;
-    //std::cout << Engine::Math::tan(60) * 180 / PI;
-
-    std::cin.get();
-
 }

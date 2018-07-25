@@ -7,6 +7,7 @@
 #define _SpaceWar_Clock_HPP_
 
 #include <SFML/System.hpp>
+#include "../../Config.hpp"
 
 namespace Engine
 {

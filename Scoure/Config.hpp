@@ -10,16 +10,41 @@
 
 #define SpaceWarVersion    1.0.0
 #define PI                 3.14
+#define DegToRad           PI / 180.0
+
+
+//   Should add define UNICODE
+
 
 #if defined(_MSC_VER) || defined(__GNUC__)
 
     #include <Windows.h>
 
-    #define API_WINDOW
+    #define GAME_WINDOW
 
-#elif defined(__linux__)
+#else
 
-    #define API_LINUX
+    #if defined(__unix__)
+
+        #if defined(__linux__)
+
+            #define GAME_LINUX
+
+        #elif defined(__FreeBSD__) || defined(__FreeBSD_kernel__)
+
+            #define GAME_FREEBSD
+
+        #elif defined(__OpenBSD__)
+
+            #define GAME_OPENBSD
+
+        #else
+
+            #error This game isn't supported this UNIX operating system
+
+        #endif
+
+    #endif
 
 #endif
 

@@ -7,6 +7,7 @@
 #define _SpaceWar_CountdownClock_HPP_
 
 #include <SFML/Graphics.hpp>
+#include "../../Config.hpp"
 
 namespace Engine
 {

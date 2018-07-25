@@ -7,6 +7,7 @@
 #define _SpaceWar_Hitbox_HPP_
 
 #include <SFML/Graphics.hpp>
+#include "../../Config.hpp"
 
 namespace Engine
 {
