@@ -1,4 +1,4 @@
-/*
+﻿/*
 **   Project: Space War
 **   File: Config.hpp
 */
@@ -40,7 +40,7 @@
 
         #else
 
-            #error This game isn't supported this UNIX operating system
+            #error This game isn't support this UNIX operating system
 
         #endif
 
@@ -49,11 +49,34 @@
 #endif
 
 //   Information of Screen
-#define Screen_With           850
-#define Screen_Height         500
+#define Screen_With           900
+#define Screen_Height         600
 #define Screen_Max_Frame      60
 
+#if defined(VIE)     //  Vietnamese
 
-static const std::string Path_Texture = "";
+    #define Title_Game L"Chiến Tranh Vũ Trụ"
+
+    #define Convert_To_String std::to_wstring
+
+    #define SwString std::wstring
+
+#elif defined(ENG)   //   English
+
+    #define Title_Game "Space War"
+
+    #define Convert_To_String std::to_string
+
+    #define SwString std::string
+
+#else
+
+    #error You should define VIE or ENG
+
+#endif
+
+//   Define path
+#define Path_Textures   "Assets/Textures/"
+#define Path_Data       "Data/"
 
 #endif  //   _SpaceWar_Config_HPP_
