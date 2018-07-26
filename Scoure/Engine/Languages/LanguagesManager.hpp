@@ -1,6 +1,6 @@
 /*
 **   Project: Space War
-**   File: Vietnamese.hpp
+**   File: LanguagesManager.hpp
 */
 
 #ifndef _SpaceWar_LanguagesManager_HPP_
@@ -12,7 +12,17 @@
 
 namespace Engine
 {
+    class LanguagesManager
+    {
+    private:
+        std::map<int, SwString>      m_content;
 
+    public:
+
+    };
+
+
+    static LanguagesManager s_language;
 }
 
-#endif  //   _SpaceWar_Vietnamese_HPP_
+#endif  //   _SpaceWar_LanguagesManager_HPP_

@@ -16,7 +16,7 @@
 //   Should add define UNICODE
 
 
-#if defined(_MSC_VER) || defined(__GNUC__)
+#if defined(_WIN32)
 
     #include <Windows.h>
 
@@ -40,7 +40,7 @@
 
         #else
 
-            #error This game isn't support this UNIX operating system
+            #error This game is not support this UNIX operating system
 
         #endif
 
@@ -53,25 +53,47 @@
 #define Screen_Height         600
 #define Screen_Max_Frame      60
 
-#if defined(VIE)     //  Vietnamese
+
+//   Define Language
+#if defined(UNICODE)        //  Vietnamese
 
     #define Title_Game L"Chiến Tranh Vũ Trụ"
 
-    #define Convert_To_String std::to_wstring
+    #if defined(_MSC_VER)
+
+        #define Convert_To_String std::to_wstring
+
+    #elif (__GNUC__ >= 6)
+
+        #define Convert_To_String std::to_wstring
+
+    #else
+
+        #error The version of GNU is not support function std::to_wstring
+
+    #endif
 
     #define SwString std::wstring
 
-#elif defined(ENG)   //   English
+#elif !defined(UNICODE)          //   English
 
     #define Title_Game "Space War"
 
-    #define Convert_To_String std::to_string
+    #if defined(_MSC_VER)
+
+        #define Convert_To_String std::to_string
+
+    #elif (__GNUC__ >= 5)
+
+        #define Convert_To_String std::to_string
+
+    #else
+
+        #error The version of GNU is not support function std::to_string
+
+    #endif
 
     #define SwString std::string
-
-#else
-
-    #error You should define VIE or ENG
 
 #endif
 
