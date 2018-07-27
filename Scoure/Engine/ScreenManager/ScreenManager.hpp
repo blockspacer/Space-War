@@ -18,7 +18,7 @@ namespace Engine
         ScreenPtr              m_belowScreen;
         ScreenPtr              m_currentScreen;
 
-        bool                 m_drawOneScreen;
+        bool                   m_drawOneScreen;
 
     public:
         ScreenManager();
@@ -37,6 +37,10 @@ namespace Engine
 
         //   Add new Screen
         void addSreen(ScreenPtr screen, bool replace = true);
+
+        //   Remove the current Screen
+        void removeScreen();
+
 
         void setNumberScreenDraw(bool drawOneScreen = true);
     };

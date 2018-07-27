@@ -6,9 +6,10 @@
 #ifndef _SpaceWar_Config_HPP_
 #define _SpaceWar_Config_HPP_
 
+#include <SFML/System.hpp>
 #include <string>
 
-#define SpaceWarVersion    1.0.0
+#define SpaceWarVersion    1.0
 #define PI                 3.14
 #define DegToRad           PI / 180.0
 
@@ -50,8 +51,9 @@
 
 //   Information of Screen
 #define Screen_With           900
-#define Screen_Height         600
+#define Screen_Height         550
 #define Screen_Max_Frame      60
+#define Time_A_Frame          sf::seconds(1.f / 60.f)
 
 
 //   Define Language

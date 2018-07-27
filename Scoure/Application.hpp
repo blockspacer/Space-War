@@ -7,6 +7,8 @@
 #define _SpaceWar_Application_HPP_
 
 #include <SFML/Graphics.hpp>
+#include "Screens/ScreenData.hpp"
+#include "Screens/SplashScreen.hpp"
 #include "Config.hpp"
 
 namespace Sw
@@ -14,9 +16,11 @@ namespace Sw
     class Application
     {
     private:
+        ScreenDataPtr         m_data;
+
 
     public:
-        Application() = default;
+        Application();
         ~Application();
 
         //   The main loop of this game

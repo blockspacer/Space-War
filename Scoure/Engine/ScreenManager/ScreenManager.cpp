@@ -55,7 +55,8 @@ namespace Engine
     {
         if (!replace)
         {
-            this->m_currentScreen->pause();
+            if (this->m_currentScreen != nullptr)
+                this->m_currentScreen->pause();
 
             if (this->m_belowScreen != nullptr)
                 delete this->m_belowScreen;
@@ -71,6 +72,25 @@ namespace Engine
             this->m_currentScreen = screen;
         }
     }
+
+    /////////////////////////////////////////
+
+    void ScreenManager::removeScreen()
+    {
+        if (this->m_currentScreen != nullptr)
+        {
+            delete this->m_currentScreen;
+
+            if (this->m_belowScreen != nullptr)
+            {
+                this->m_currentScreen = this->m_belowScreen;
+
+                this->m_belowScreen = nullptr;
+            }
+        }
+    }
+
+    /////////////////////////////////////////
 
     void ScreenManager::setNumberScreenDraw(bool drawOneScreen)
     {
