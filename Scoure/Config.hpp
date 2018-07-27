@@ -27,6 +27,8 @@
 
     #if defined(__unix__)
 
+        #include <iostream>
+
         #if defined(__linux__)
 
             #define GAME_LINUX
@@ -98,9 +100,5 @@
     #define SwString std::string
 
 #endif
-
-//   Define path
-#define Path_Textures   "Assets/Textures/"
-#define Path_Data       "Data/"
 
 #endif  //   _SpaceWar_Config_HPP_

@@ -2,7 +2,7 @@
 #include <iostream>
 #include "Application.hpp"
 #include "Config.hpp"
-
+#include "TinyXML/tinyxml2.h"
 int main(int argc, char* argv[])
 {
     if (!sf::Shader::isAvailable())
@@ -11,7 +11,7 @@ int main(int argc, char* argv[])
 #ifdef GAME_WINDOW
     #if defined(UNICODE)
 
-        MessageBox(nullptr, L"Máy bạn không hỗ trợ Shader !!!\nNên bạn không thể chơi game này !!!", L"Thông Báo", MB_ICONHAND);
+        MessageBox(nullptr, L"Máy tính bạn không hỗ trợ Shader !!!\nNên bạn không thể chơi game này !!!", L"Thông Báo", MB_ICONHAND);
 
     #elif !defined(UNICODE)
 

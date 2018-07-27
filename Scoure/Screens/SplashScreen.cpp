@@ -14,9 +14,18 @@ namespace Sw
 
     //////////////////////////////////////////////////
 
+    SplashScreen::~SplashScreen()
+    {
+    }
+
+    //////////////////////////////////////////////////
+
     void SplashScreen::update()
     {
-
+        if (this->m_timer.getElapsedTime().asSeconds() > 2.f)
+        {
+            this->m_data->m_screen.addSreen(Engine::ScreenPtr(new MenuScreen(this->m_data)));
+        }
     }
 
     //////////////////////////////////////////////////

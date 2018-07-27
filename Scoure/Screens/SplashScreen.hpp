@@ -9,6 +9,7 @@
 #include <SFML/Graphics.hpp>
 #include "../Engine/ScreenManager/Screen.hpp"
 #include "ScreenData.hpp"
+#include "MenuScreen.hpp"
 #include "../Config.hpp"
 
 namespace Sw
@@ -18,9 +19,11 @@ namespace Sw
     private:
         ScreenDataPtr               m_data;
 
+        sf::Clock                   m_timer;
+
     public:
         SplashScreen(ScreenDataPtr data);
-
+        ~SplashScreen();
 
         void handleEvent() override;
 
