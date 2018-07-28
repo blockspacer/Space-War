@@ -2,7 +2,7 @@
 #include <iostream>
 #include "Application.hpp"
 #include "Config.hpp"
-#include "TinyXML/tinyxml2.h"
+#include "Engine/CommonFunctions/Security.hpp"
 int main(int argc, char* argv[])
 {
     if (!sf::Shader::isAvailable())

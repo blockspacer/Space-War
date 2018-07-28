@@ -5,7 +5,7 @@
 
 #include "TexturesManager.hpp"
 
-namespace Sw
+namespace Engine
 {
     TexturesManager::~TexturesManager()
     {
@@ -41,5 +41,19 @@ namespace Sw
 
             exit(EXIT_FAILURE);
         }
+    }
+
+    /////////////////////////////////////////
+
+    sf::Texture& TexturesManager::get(int ID)
+    {
+        return this->m_texture[ID];
+    }
+
+    /////////////////////////////////////////
+
+    void TexturesManager::remove(int ID)
+    {
+        this->m_texture.erase(this->m_texture.find(ID));
     }
 }

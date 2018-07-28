@@ -14,8 +14,14 @@ namespace Sw
         this->m_data->m_window.setFramerateLimit(Screen_Max_Frame);
 
 
+
         //   Add new Screen
         this->m_data->m_screen.addSreen(Engine::ScreenPtr(new SplashScreen(this->m_data)));
+
+
+        //   Data Transmission
+        this->m_data->m_language = &s_language;
+        this->m_data->m_texture = &s_textures;
     }
 
     ////////////////////////////////////////////////

@@ -20,9 +20,6 @@ namespace Engine
     public:
 
     };
-
-
-    static LanguagesManager s_language;
 }
 
 #endif  //   _SpaceWar_LanguagesManager_HPP_

@@ -10,7 +10,7 @@
 #include <map>
 #include "../../Config.hpp"
 
-namespace Sw
+namespace Engine
 {
     class TexturesManager
     {
@@ -21,10 +21,16 @@ namespace Sw
         TexturesManager() = default;
         ~TexturesManager();
 
-
+        //   Used to load sf::Texture
         void load(int ID, const char* Path);
 
-        
+
+        //   Used to get sf::Texture
+        sf::Texture& get(int ID);
+
+
+        //   Remove sf::Texture
+        void remove(int ID);
     };
 }
 

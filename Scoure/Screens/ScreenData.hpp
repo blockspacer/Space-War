@@ -10,6 +10,7 @@
 #include <memory>
 #include "../Engine/ScreenManager/ScreenManager.hpp"
 #include "../Engine/Languages/LanguagesManager.hpp"
+#include "../StaticValue.hpp"
 #include "../Config.hpp"
 
 namespace Sw
@@ -18,6 +19,8 @@ namespace Sw
     {
         sf::RenderWindow                m_window;
         Engine::ScreenManager           m_screen;
+        Engine::LanguagesManager*       m_language;
+        Engine::TexturesManager*        m_texture;
     };
 
     typedef std::shared_ptr<ScreenData> ScreenDataPtr;
