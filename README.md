@@ -5,7 +5,7 @@
 
 
 ### Một số hình ảnh trong Game:
-![](https://github.com/hardingadonis/Space-War/blob/master/Screenshot/SplashScreen.jpg?raw=true)
+![Splash Screen](https://github.com/hardingadonis/Space-War/blob/master/Screenshot/SplashScreen.jpg?raw=true)
 
 ### Thông tin của Game:
    * Ngôn ngữ: C++ 14.
