@@ -10,6 +10,7 @@ namespace Sw
     SplashScreen::SplashScreen(ScreenDataPtr data) :
         m_data(data)
     {
+        this->m_background.setTexture(this->m_data->m_texture->get(1));
     }
 
     //////////////////////////////////////////////////
@@ -18,14 +19,17 @@ namespace Sw
     {
     }
 
+
     //////////////////////////////////////////////////
 
     void SplashScreen::update()
     {
-        if (this->m_timer.getElapsedTime().asSeconds() > 2.f)
+        
+        if (this->m_timer.getElapsedTime().asSeconds() > 1.5f)
         {
             this->m_data->m_screen.addSreen(Engine::ScreenPtr(new MenuScreen(this->m_data)));
         }
+        
     }
 
     //////////////////////////////////////////////////
@@ -33,6 +37,8 @@ namespace Sw
     void SplashScreen::draw()
     {
         this->m_data->m_window.clear();
+
+        this->m_data->m_window.draw(this->m_background);
 
         this->m_data->m_window.display();
     }

@@ -1,4 +1,4 @@
-/*
+﻿/*
 **   Project: Space War
 **   File: Application.cpp
 */
@@ -10,8 +10,25 @@ namespace Sw
     Application::Application() :
         m_data(std::make_shared<ScreenData>())
     {
+        //   Load Data
+        this->loadData();
+
+        //   Data Transmission
+        this->m_data->m_language = &s_language;
+        this->m_data->m_texture = &s_textures;
+
+
         this->m_data->m_window.create(sf::VideoMode(Screen_With, Screen_Height), Title_Game, sf::Style::Close);
         this->m_data->m_window.setFramerateLimit(Screen_Max_Frame);
+
+
+        //   Set mouse
+        this->m_mouse.loadFromPixels(s_normal_mouse.pixel_data, sf::Vector2u(s_normal_mouse.width, s_normal_mouse.height), sf::Vector2u(0u, 0u));
+        this->m_data->m_window.setMouseCursor(this->m_mouse);
+
+
+        //   Set Icon
+        this->m_data->m_window.setIcon(s_icon.width, s_icon.height, s_icon.pixel_data);
 
 
 
@@ -19,9 +36,7 @@ namespace Sw
         this->m_data->m_screen.addSreen(Engine::ScreenPtr(new SplashScreen(this->m_data)));
 
 
-        //   Data Transmission
-        this->m_data->m_language = &s_language;
-        this->m_data->m_texture = &s_textures;
+        
     }
 
     ////////////////////////////////////////////////
@@ -29,6 +44,57 @@ namespace Sw
     Application::~Application()
     {
     }
+
+    ////////////////////////////////////////////////
+
+    void Application::loadData()
+    {
+        this->loadTextures();
+
+        this->loadFonts();
+
+        this->loadAudio();
+
+    }
+
+    ////////////////////////////////////////////////
+
+    void Application::loadTextures()
+    {
+        //Engine::Security::decode("Data/Textures.xml");
+
+        tinyxml2::XMLDocument document;
+
+        if (document.LoadFile("Data/Textures.xml") == tinyxml2::XMLError::XML_ERROR_FILE_NOT_FOUND)
+            exit(EXIT_FAILURE);
+
+        tinyxml2::XMLElement* root = document.FirstChildElement();
+
+        for (auto texture = root->FirstChildElement(); texture != nullptr; texture = texture->NextSiblingElement())
+        {
+            int ID;
+
+            texture->QueryIntAttribute("ID", &ID);
+
+            s_textures.load(ID, texture->GetText());
+        }
+
+        //Engine::Security::encode("Data/Textures.xml");
+    }
+
+    ////////////////////////////////////////////////
+
+    void Application::loadFonts()
+    {
+    }
+
+    ////////////////////////////////////////////////
+
+    void Application::loadAudio()
+    {
+    }
+
+    ////////////////////////////////////////////////
 
     ////////////////////////////////////////////////
 

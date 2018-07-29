@@ -1,7 +1,3 @@
-<?xml version = "1.0" encoding = "UTF-8"?>
-
 <Textures>
-	<SplashScreen>
-		<Background ID = "1">Assets/Textures/Screens/SplashScreen.jpg</Background>
-	</SplashScreen>
+	<BackgroundSplashScreen ID = "1">Assets/Textures/Screens/SplashScreen.jpg</BackgroundSplashScreen>
 </Textures>>

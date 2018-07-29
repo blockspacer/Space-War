@@ -21,6 +21,8 @@ namespace Sw
 
         sf::Clock                   m_timer;
 
+        sf::Sprite                  m_background;
+
     public:
         SplashScreen(ScreenDataPtr data);
         ~SplashScreen();

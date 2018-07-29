@@ -7,9 +7,12 @@
 #define _SpaceWar_Application_HPP_
 
 #include <SFML/Graphics.hpp>
+#include "Engine/CommonFunctions/Security.hpp"
 #include "Screens/ScreenData.hpp"
 #include "Screens/SplashScreen.hpp"
+#include "TinyXML/tinyxml2.h"
 #include "Config.hpp"
+#include "Icon.hpp"
 
 namespace Sw
 {
@@ -18,6 +21,16 @@ namespace Sw
     private:
         ScreenDataPtr         m_data;
 
+        sf::Cursor            m_mouse;
+
+    private:
+        void loadData();
+
+        void loadTextures();
+
+        void loadFonts();
+
+        void loadAudio();
 
     public:
         Application();
