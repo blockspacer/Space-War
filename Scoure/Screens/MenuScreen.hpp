@@ -18,6 +18,8 @@ namespace Sw
     private:
         ScreenDataPtr               m_data;
 
+        sf::Sprite                  m_title_game;
+
     public:
         MenuScreen(ScreenDataPtr data);
 

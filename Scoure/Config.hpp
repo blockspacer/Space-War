@@ -65,11 +65,11 @@
 
     #if defined(_MSC_VER)
 
-        #define Convert_To_String std::to_wstring
+        #define To_SwString std::to_wstring
 
     #elif (__GNUC__ >= 6)
 
-        #define Convert_To_String std::to_wstring
+        #define To_SwString std::to_wstring
 
     #else
 
@@ -85,11 +85,11 @@
 
     #if defined(_MSC_VER)
 
-        #define Convert_To_String std::to_string
+        #define To_SwString std::to_string
 
     #elif (__GNUC__ >= 5)
 
-        #define Convert_To_String std::to_string
+        #define To_SwString std::to_string
 
     #else
 

@@ -1,22 +1,22 @@
 ﻿/*
 **   Project: Space War
-**   File: TexturesManager.cpp
+**   File: FontsManager.cpp
 */
 
-#include "TexturesManager.hpp"
+#include "FontsManager.hpp"
 
 namespace Engine
 {
-    TexturesManager::~TexturesManager()
+    FontsManager::~FontsManager()
     {
-        this->m_texture.clear();
+        this->m_font.clear();
     }
 
     /////////////////////////////////////////
 
-    void TexturesManager::load(int ID, const char* Path)
+    void FontsManager::load(int ID, const char* Path)
     {
-        if (!this->m_texture[ID].loadFromFile(Path))
+        if (!this->m_font[ID].loadFromFile(Path))
         {
 
 #if defined(GAME_WINDOW)
@@ -45,15 +45,15 @@ namespace Engine
 
     /////////////////////////////////////////
 
-    sf::Texture& TexturesManager::get(int ID)
+    sf::Font& FontsManager::get(int ID)
     {
-        return this->m_texture[ID];
+        return this->m_font[ID];
     }
 
     /////////////////////////////////////////
 
-    void TexturesManager::remove(int ID)
+    void FontsManager::remove(int ID)
     {
-        this->m_texture.erase(this->m_texture.find(ID));
+        this->m_font.erase(this->m_font.find(ID));
     }
 }
