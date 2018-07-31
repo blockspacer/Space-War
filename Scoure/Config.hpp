@@ -59,13 +59,17 @@
 
 
 //   Define Language
-#if defined(UNICODE)        //  Vietnamese
+#if defined(UNICODE)            //  Vietnamese
 
     #define Title_Game L"Chiến Tranh Vũ Trụ"
 
-    #if defined(_MSC_VER)
+    #if (_MSC_VER == 1900)
 
         #define To_SwString std::to_wstring
+
+    #elif (_MSC_VER != 1900)
+
+        #error The version of Visual Studio is not support C++ 14
 
     #elif (__GNUC__ >= 6)
 
@@ -83,9 +87,13 @@
 
     #define Title_Game "Space War"
 
-    #if defined(_MSC_VER)
+    #if defined(_MSC_VER == 1900)
 
         #define To_SwString std::to_string
+
+    #elif (_MSC_VER != 1900)
+
+        #error The version of Visual Studio is not support C++ 14
 
     #elif (__GNUC__ >= 5)
 

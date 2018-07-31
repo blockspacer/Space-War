@@ -9,6 +9,7 @@ int main(int argc, char* argv[])
     {
 
 #ifdef GAME_WINDOW
+
     #if defined(UNICODE)
 
         MessageBox(nullptr, L"Máy tính bạn không hỗ trợ Shader !!!\nNên bạn không thể chơi game này !!!", L"Thông Báo", MB_ICONHAND);
@@ -18,7 +19,9 @@ int main(int argc, char* argv[])
         MessageBox(nullptr, "Your computer doesn't support Shader !!!\nYou can't play this game !!!", "Notification", MB_ICONHAND);
 
     #endif
+
 #else
+
     #if defined(GAME_LINUX) || defined(GAME_FREEBSD) || defined(GAME_OPENBSD)
 
         std::cout << "Your computer doesn't support Shader !!!\nYou can't play this game !!!" << std::endl;
@@ -26,6 +29,7 @@ int main(int argc, char* argv[])
         std::cin.get();
 
     #endif
+
 #endif
 
         exit(EXIT_FAILURE);

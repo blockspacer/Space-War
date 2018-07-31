@@ -21,6 +21,7 @@ namespace Sw
         Engine::ScreenManager           m_screen;
         Engine::LanguagesManager*       m_language;
         Engine::TexturesManager*        m_texture;
+        Engine::FontsManager*           m_font;
     };
 
     typedef std::shared_ptr<ScreenData> ScreenDataPtr;

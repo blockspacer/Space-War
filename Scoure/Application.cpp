@@ -14,8 +14,9 @@ namespace Sw
         this->loadData();
 
         //   Data Transmission
-        this->m_data->m_language = &s_language;
+        this->m_data->m_language = &s_languages;
         this->m_data->m_texture = &s_textures;
+        this->m_data->m_font = &s_fonts;
 
 
         this->m_data->m_window.create(sf::VideoMode(Screen_With, Screen_Height), Title_Game, sf::Style::Close);
@@ -86,6 +87,25 @@ namespace Sw
 
     void Application::loadFonts()
     {
+        //Engine::Security::decode("Data/Fonts.xml");
+
+        tinyxml2::XMLDocument document;
+        
+        if (document.LoadFile("Data/Fonts.xml") == tinyxml2::XMLError::XML_ERROR_FILE_NOT_FOUND)
+            exit(EXIT_FAILURE);
+
+        tinyxml2::XMLElement* root = document.FirstChildElement();
+
+        for (auto font = root->FirstChildElement(); font != nullptr; font = font->NextSiblingElement())
+        {
+            int ID;
+
+            font->QueryIntAttribute("ID", &ID);
+
+            s_fonts.load(ID, font->GetText());
+        }
+
+        //Engine::Security::encode("Data/Fonts.xml");
     }
 
     ////////////////////////////////////////////////
