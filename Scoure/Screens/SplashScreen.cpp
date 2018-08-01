@@ -10,7 +10,7 @@ namespace Sw
     SplashScreen::SplashScreen(ScreenDataPtr data) :
         m_data(data)
     {
-        this->m_background.setTexture(this->m_data->m_texture->get(1));
+        this->m_background.setTexture(this->m_data->m_textures->get(1));
     }
 
     //////////////////////////////////////////////////

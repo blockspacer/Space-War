@@ -9,5 +9,6 @@
 	![](https://github.com/hardingadonis/Space-War/blob/master/Screenshot/SplashScreen.jpg?raw=true)
 
 ### Thông tin của Game:
-   * Ngôn ngữ: C++ 14.
-   * Thư viện: [SFML](https://www.sfml-dev.org/) 2.5.0.
+   * Ngôn ngữ: [C++ 14](https://en.wikipedia.org/wiki/C%2B%2B14).
+   * [GLSL](https://en.wikipedia.org/wiki/OpenGL_Shading_Language) 400.
+   * Thư viện: [SFML](https://www.sfml-dev.org/) 2.5.x.

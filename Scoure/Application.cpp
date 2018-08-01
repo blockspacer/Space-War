@@ -14,9 +14,11 @@ namespace Sw
         this->loadData();
 
         //   Data Transmission
-        this->m_data->m_language = &s_languages;
-        this->m_data->m_texture = &s_textures;
-        this->m_data->m_font = &s_fonts;
+        this->m_data->m_languages   = &s_languages;
+        this->m_data->m_textures    = &s_textures;
+        this->m_data->m_fonts       = &s_fonts;
+        this->m_data->m_shaders     = &s_shaders;
+        this->m_data->m_audio       = &s_audio;
 
 
         this->m_data->m_window.create(sf::VideoMode(Screen_With, Screen_Height), Title_Game, sf::Style::Close);
@@ -53,6 +55,8 @@ namespace Sw
         this->loadTextures();
 
         this->loadFonts();
+
+        this->loadShaders();
 
         this->loadAudio();
 
@@ -112,9 +116,16 @@ namespace Sw
 
     void Application::loadAudio()
     {
+
+
     }
 
     ////////////////////////////////////////////////
+
+    void Application::loadShaders()
+    {
+
+    }
 
     ////////////////////////////////////////////////
 

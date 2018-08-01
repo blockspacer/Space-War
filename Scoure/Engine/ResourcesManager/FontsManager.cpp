@@ -40,7 +40,15 @@ namespace Engine
 #endif
 
             exit(EXIT_FAILURE);
+
         }
+
+#ifdef _DEBUG
+
+        std::cout << "Load Font Success:  " << Path << std::endl;
+
+#endif
+
     }
 
     /////////////////////////////////////////

@@ -5,6 +5,13 @@
 
 int main(int argc, char* argv[])
 {
+
+#ifdef _DEBUG
+
+    system("color A");
+
+#endif
+
     if (!sf::Shader::isAvailable())
     {
 

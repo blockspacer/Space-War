@@ -9,17 +9,34 @@
 #include <SFML/System.hpp>
 #include <string>
 
-#define SpaceWarVersion    1.0
-#define PI                 3.14
-#define DegToRad           PI / 180.0
+
+#if (SFML_VERSION_MAJOR == 2)
+
+    #if (SFML_VERSION_MINOR != 5)
+
+        #error You have to use SFML 2.5.x
+
+    #endif
+
+#else
+
+    #error You have to use SFML 2.5.x
+
+#endif
+
+#define Space_War_Version    1.0
+#define PI                   3.14
+#define DegToRad             PI / 180.0
 
 
-//   Should add define UNICODE
+//   Should add define UNICODE if you want to use Unicode
 
 
 #if defined(_WIN32)
 
     #include <Windows.h>
+
+    #include <iostream>
 
     #define GAME_WINDOW
 
@@ -50,6 +67,7 @@
     #endif
 
 #endif
+
 
 //   Information of Screen
 #define Screen_With           900

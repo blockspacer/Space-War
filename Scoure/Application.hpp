@@ -32,6 +32,8 @@ namespace Sw
 
         void loadAudio();
 
+        void loadShaders();
+
     public:
         Application();
         ~Application();

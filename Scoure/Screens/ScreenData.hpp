@@ -18,10 +18,18 @@ namespace Sw
     struct ScreenData
     {
         sf::RenderWindow                m_window;
+
         Engine::ScreenManager           m_screen;
-        Engine::LanguagesManager*       m_language;
-        Engine::TexturesManager*        m_texture;
-        Engine::FontsManager*           m_font;
+
+        Engine::LanguagesManager*       m_languages;
+
+        Engine::TexturesManager*        m_textures;
+
+        Engine::FontsManager*           m_fonts;
+
+        Engine::ShadersManager*         m_shaders;
+
+        Engine::AudioManager*           m_audio;
     };
 
     typedef std::shared_ptr<ScreenData> ScreenDataPtr;

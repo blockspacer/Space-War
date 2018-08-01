@@ -13,11 +13,11 @@ namespace Sw
 
 #if defined(UNICODE)
 
-        this->m_title_game.setTexture(this->m_data->m_texture->get(2));
+        this->m_title_game.setTexture(this->m_data->m_textures->get(2));
 
 #elif !defined(UNICODE)
 
-        this->m_title_game.setTexture(this->m_data->m_texture->get(3));
+        this->m_title_game.setTexture(this->m_data->m_textures->get(3));
 
 #endif
 

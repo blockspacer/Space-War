@@ -41,6 +41,12 @@ namespace Engine
 
             exit(EXIT_FAILURE);
         }
+
+#ifdef _DEBUG
+
+        std::cout << "Load Image Success: " << Path << std::endl;
+
+#endif
     }
 
     /////////////////////////////////////////
