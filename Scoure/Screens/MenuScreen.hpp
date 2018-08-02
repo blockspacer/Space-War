@@ -8,6 +8,7 @@
 
 #include <SFML/Graphics.hpp>
 #include "../Engine/ScreenManager/Screen.hpp"
+#include "../GUI/Button.hpp"
 #include "ScreenData.hpp"
 #include "../Config.hpp"
 
@@ -20,9 +21,11 @@ namespace Sw
 
         sf::Sprite                  m_title_game;
 
+        GUI::Button                 m_button_play;
+
     public:
         MenuScreen(ScreenDataPtr data);
-
+        ~MenuScreen();
 
         void handleEvent() override;
 

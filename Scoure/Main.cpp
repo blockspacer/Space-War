@@ -8,6 +8,8 @@ int main(int argc, char* argv[])
 
 #ifdef _DEBUG
 
+    system("Title DEBUG GAME");
+
     system("color A");
 
 #endif

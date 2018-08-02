@@ -52,6 +52,13 @@ namespace Sw
 
     void Application::loadData()
     {
+
+#ifdef _DEBUG
+
+        std::cout << "Space War - DEBUG: Load Data\n";
+
+#endif
+
         this->loadTextures();
 
         this->loadFonts();
@@ -116,7 +123,32 @@ namespace Sw
 
     void Application::loadAudio()
     {
+        //Engine::Security::decode("Data/Musics.xml");
 
+        tinyxml2::XMLDocument document;
+
+        if (document.LoadFile("Data/Musics.xml") == tinyxml2::XMLError::XML_ERROR_FILE_NOT_FOUND)
+            exit(EXIT_FAILURE);
+
+        tinyxml2::XMLElement* Volume = document.FirstChildElement();
+        
+        int volume;
+        Volume->QueryIntAttribute("volume", &volume);
+
+        tinyxml2::XMLElement* root = Volume->NextSiblingElement();
+
+        for (auto music = root->FirstChildElement(); music != nullptr; music = music->NextSiblingElement())
+        {
+            int ID;
+
+            music->QueryIntAttribute("ID", &ID);
+
+            s_audio.loadMusic(ID, music->GetText());
+        }
+
+        s_audio.setVolumeMusics((float)volume);
+
+        //Engine::Security::encode("Data/Musics.xml");
 
     }
 

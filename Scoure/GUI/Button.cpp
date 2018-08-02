@@ -7,8 +7,8 @@
 
 namespace GUI
 {
-    Button::Button(const sf::String& string, const sf::Font& font, unsigned int characterSize) :
-        sf::Text(string, font, characterSize)
+    Button::Button(const sf::Texture& texture, const sf::IntRect& rectangle) :
+        sf::Sprite(texture, rectangle)
     {
     }
 

@@ -105,7 +105,7 @@
 
     #define Title_Game "Space War"
 
-    #if defined(_MSC_VER == 1900)
+    #if (_MSC_VER == 1900)
 
         #define To_SwString std::to_string
 

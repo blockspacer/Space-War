@@ -4,4 +4,5 @@
 	<BackgroundSplashScreen ID = "1">Assets/Textures/Screens/SplashScreen.jpg</BackgroundSplashScreen>
 	<TitleGameVietnamese ID = "2">Assets/Textures/Screens/TitleGameVie.png</TitleGameVietnamese>
 	<TitleGameEnglish ID = "3">Assets/Textures/Screens/TitleGameEng.png</TitleGameEnglish>
+	<ButtonPlayVietnamese ID = "4">Assets/Textures/GUI/ButtonPlayVie.png</ButtonPlayVietnamese>
 </Textures>>
