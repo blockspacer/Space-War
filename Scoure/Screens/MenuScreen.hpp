@@ -7,8 +7,8 @@
 #define _SpaceWar_MenuScreen_HPP_
 
 #include <SFML/Graphics.hpp>
+#include <TGUI/TGUI.hpp>
 #include "../Engine/ScreenManager/Screen.hpp"
-#include "../GUI/Button.hpp"
 #include "ScreenData.hpp"
 #include "../Config.hpp"
 
@@ -21,7 +21,16 @@ namespace Sw
 
         sf::Sprite                  m_title_game;
 
-        GUI::Button                 m_button_play;
+        tgui::Button::Ptr           m_button_play;
+
+        tgui::Button::Ptr           m_button_infor;
+
+        tgui::Button::Ptr           m_button_setting;
+
+        tgui::Button::Ptr           m_button_exit;
+
+    private:
+        void setupButton();
 
     public:
         MenuScreen(ScreenDataPtr data);

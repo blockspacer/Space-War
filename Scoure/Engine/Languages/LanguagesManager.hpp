@@ -7,18 +7,15 @@
 #define _SpaceWar_LanguagesManager_HPP_
 
 #include <string>
-#include <map>
+#include "LanguageValue.hpp"
 #include "../../Config.hpp"
 
 namespace Engine
 {
     class LanguagesManager
     {
-    private:
-        std::map<int, SwString>      m_content;
-
     public:
-
+        static SwString getString(int ID);
     };
 }
 

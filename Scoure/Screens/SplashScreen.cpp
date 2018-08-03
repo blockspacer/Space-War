@@ -40,6 +40,8 @@ namespace Sw
 
         this->m_data->m_window.draw(this->m_background);
 
+        this->m_data->m_gui.draw();
+
         this->m_data->m_window.display();
     }
 
@@ -54,5 +56,7 @@ namespace Sw
             if (event.type == sf::Event::EventType::Closed)
                 this->m_data->m_window.close();
         }
+
+        this->m_data->m_gui.handleEvent(event);
     }
 }

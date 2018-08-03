@@ -14,16 +14,20 @@ namespace Sw
         this->loadData();
 
         //   Data Transmission
-        this->m_data->m_languages   = &s_languages;
         this->m_data->m_textures    = &s_textures;
         this->m_data->m_fonts       = &s_fonts;
         this->m_data->m_shaders     = &s_shaders;
         this->m_data->m_audio       = &s_audio;
 
 
+        //   Create Window
         this->m_data->m_window.create(sf::VideoMode(Screen_With, Screen_Height), Title_Game, sf::Style::Close);
         this->m_data->m_window.setFramerateLimit(Screen_Max_Frame);
 
+
+        //   Set GUI
+        this->m_data->m_gui.setTarget(this->m_data->m_window);
+        this->m_data->m_gui.setFont(this->m_data->m_fonts->get(1));
 
         //   Set mouse
         this->m_mouse.loadFromPixels(s_normal_mouse.pixel_data, sf::Vector2u(s_normal_mouse.width, s_normal_mouse.height), sf::Vector2u(0u, 0u));
@@ -34,12 +38,8 @@ namespace Sw
         this->m_data->m_window.setIcon(s_icon.width, s_icon.height, s_icon.pixel_data);
 
 
-
         //   Add new Screen
         this->m_data->m_screen.addSreen(Engine::ScreenPtr(new SplashScreen(this->m_data)));
-
-
-        
     }
 
     ////////////////////////////////////////////////

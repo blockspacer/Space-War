@@ -15,8 +15,6 @@
 
 namespace Sw
 {
-    static Engine::LanguagesManager  s_languages;
-
     static Engine::TexturesManager   s_textures;
 
     static Engine::FontsManager      s_fonts;

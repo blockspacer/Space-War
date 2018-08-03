@@ -7,5 +7,8 @@
 
 namespace Engine
 {
-
+    SwString LanguagesManager::getString(int ID)
+    {
+        return s_language_value[ID - 1];
+    }
 }

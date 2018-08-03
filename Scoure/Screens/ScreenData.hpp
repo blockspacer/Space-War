@@ -7,6 +7,7 @@
 #define _SpaceWar_ScreenData_HPP_
 
 #include <SFML/Graphics.hpp>
+#include <TGUI/TGUI.hpp>
 #include <memory>
 #include "../Engine/ScreenManager/ScreenManager.hpp"
 #include "../Engine/Languages/LanguagesManager.hpp"
@@ -19,9 +20,9 @@ namespace Sw
     {
         sf::RenderWindow                m_window;
 
-        Engine::ScreenManager           m_screen;
+        tgui::Gui                       m_gui;
 
-        Engine::LanguagesManager*       m_languages;
+        Engine::ScreenManager           m_screen;
 
         Engine::TexturesManager*        m_textures;
 
