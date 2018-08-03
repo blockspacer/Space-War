@@ -21,6 +21,8 @@ namespace Sw
 
         sf::Sprite                  m_title_game;
 
+        sf::Sprite                  m_background;
+
         tgui::Button::Ptr           m_button_play;
 
         tgui::Button::Ptr           m_button_infor;

@@ -9,6 +9,7 @@ namespace Sw
 {
     MenuScreen::MenuScreen(ScreenDataPtr data) :
         m_data(data),
+        m_background(m_data->m_textures->get(4)),
         m_button_play(tgui::Button::create(Engine::LanguagesManager::getString(1))),
         m_button_infor(tgui::Button::create(Engine::LanguagesManager::getString(2))),
         m_button_setting(tgui::Button::create(Engine::LanguagesManager::getString(3))),
@@ -32,7 +33,7 @@ namespace Sw
 
         //   Play sound
         this->m_data->m_audio->getMusic(1)->setLoop(true);
-        this->m_data->m_audio->getMusic(1)->play();
+        //this->m_data->m_audio->getMusic(1)->play();
     }
 
     ////////////////////////////////////////////
@@ -86,6 +87,8 @@ namespace Sw
     void MenuScreen::draw()
     {
         this->m_data->m_window.clear();
+
+        this->m_data->m_window.draw(this->m_background);
 
         this->m_data->m_window.draw(this->m_title_game);
 

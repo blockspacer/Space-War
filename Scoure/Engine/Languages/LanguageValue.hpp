@@ -11,11 +11,12 @@
 
 #if defined(UNICODE)
 
-static std::wstring s_language_value[4] = {
+static std::wstring s_language_value[5] = {
     L"Vào Chơi",
     L"Thông Tin Game",
     L"Cài Đặt",
     L"Thoát",
+    L"Trở Về"
 };
 
 #elif !defined(UNICODE)
