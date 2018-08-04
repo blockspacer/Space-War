@@ -85,7 +85,7 @@
 
         #define To_SwString std::to_wstring
 
-    #elif (_MSC_VER != 1900)
+    #elif (_MSC_VER != 1900) && defined(_MSC_VER)
 
         #error The version of Visual Studio is not support C++ 14
 
@@ -109,7 +109,7 @@
 
         #define To_SwString std::to_string
 
-    #elif (_MSC_VER != 1900)
+    #elif (_MSC_VER != 1900) && defined(_MSC_VER)
 
         #error The version of Visual Studio is not support C++ 14
 

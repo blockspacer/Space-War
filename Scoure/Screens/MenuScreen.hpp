@@ -9,6 +9,7 @@
 #include <SFML/Graphics.hpp>
 #include <TGUI/TGUI.hpp>
 #include "../Engine/ScreenManager/Screen.hpp"
+#include "InformationScreen.hpp"
 #include "ScreenData.hpp"
 #include "../Config.hpp"
 
@@ -43,6 +44,10 @@ namespace Sw
         void update() override;
 
         void draw() override;
+
+        void pause() override;
+
+        void resume() override;
 
     };
 }

@@ -10,7 +10,7 @@ namespace Engine
     ScreenManager::ScreenManager() :
         m_belowScreen(nullptr),
         m_currentScreen(nullptr),
-        m_drawOneScreen(false)
+        m_drawOneScreen(true)
     {
     }
 
@@ -84,6 +84,8 @@ namespace Engine
             if (this->m_belowScreen != nullptr)
             {
                 this->m_currentScreen = this->m_belowScreen;
+
+                this->m_currentScreen->resume();
 
                 this->m_belowScreen = nullptr;
             }

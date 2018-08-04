@@ -21,8 +21,12 @@ static std::wstring s_language_value[5] = {
 
 #elif !defined(UNICODE)
 
-static std::string s_language_value[1] = {
+static std::string s_language_value[5] = {
     "Play Game",
+    "About Game",
+    "Setting",
+    "Exit",
+    "Back"
 };
 
 #endif

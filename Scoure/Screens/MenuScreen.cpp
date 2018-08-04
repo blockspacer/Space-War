@@ -33,7 +33,7 @@ namespace Sw
 
         //   Play sound
         this->m_data->m_audio->getMusic(1)->setLoop(true);
-        //this->m_data->m_audio->getMusic(1)->play();
+        this->m_data->m_audio->getMusic(1)->play();
     }
 
     ////////////////////////////////////////////
@@ -56,6 +56,7 @@ namespace Sw
         this->m_button_infor->setTextSize(20);
         this->m_button_infor->setPosition(Screen_With / 2 - 100, 270);
         this->m_button_infor->showWithEffect(tgui::ShowAnimationType::Fade, sf::seconds(0.8f));
+        this->m_button_infor->connect("pressed", [&]() { this->m_data->m_screen.addSreen(Engine::ScreenPtr(new InformationScreen(this->m_data)), false); });
 
         this->m_button_setting->setSize(200, 30);
         this->m_button_setting->setTextSize(20);
@@ -110,5 +111,30 @@ namespace Sw
         }
 
         this->m_data->m_gui.handleEvent(event);
+    }
+
+    ////////////////////////////////////////////
+
+    void MenuScreen::pause()
+    {
+        this->m_data->m_gui.remove(this->m_button_play);
+        this->m_data->m_gui.remove(this->m_button_infor);
+        this->m_data->m_gui.remove(this->m_button_setting);
+        this->m_data->m_gui.remove(this->m_button_exit);
+    }
+
+    ////////////////////////////////////////////
+
+    void MenuScreen::resume()
+    {
+        this->m_button_play->showWithEffect(tgui::ShowAnimationType::Fade, sf::seconds(0.8f));
+        this->m_button_infor->showWithEffect(tgui::ShowAnimationType::Fade, sf::seconds(0.8f));
+        this->m_button_setting->showWithEffect(tgui::ShowAnimationType::Fade, sf::seconds(0.8f));
+        this->m_button_exit->showWithEffect(tgui::ShowAnimationType::Fade, sf::seconds(0.8f));
+
+        this->m_data->m_gui.add(this->m_button_play);
+        this->m_data->m_gui.add(this->m_button_infor);
+        this->m_data->m_gui.add(this->m_button_setting);
+        this->m_data->m_gui.add(this->m_button_exit);
     }
 }
