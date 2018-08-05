@@ -50,23 +50,23 @@ namespace Sw
         this->m_button_play->setSize(200, 30);
         this->m_button_play->setTextSize(20);
         this->m_button_play->setPosition(Screen_With / 2 - 100, 200);
-        this->m_button_play->showWithEffect(tgui::ShowAnimationType::Fade, sf::seconds(0.8f));
+        this->m_button_play->showWithEffect(tgui::ShowAnimationType::Fade, sf::seconds(0.3f));
 
         this->m_button_infor->setSize(200, 30);
         this->m_button_infor->setTextSize(20);
         this->m_button_infor->setPosition(Screen_With / 2 - 100, 270);
-        this->m_button_infor->showWithEffect(tgui::ShowAnimationType::Fade, sf::seconds(0.8f));
+        this->m_button_infor->showWithEffect(tgui::ShowAnimationType::Fade, sf::seconds(0.3f));
         this->m_button_infor->connect("pressed", [&]() { this->m_data->m_screen.addSreen(Engine::ScreenPtr(new InformationScreen(this->m_data)), false); });
 
         this->m_button_setting->setSize(200, 30);
         this->m_button_setting->setTextSize(20);
         this->m_button_setting->setPosition(Screen_With / 2 - 100, 340);
-        this->m_button_setting->showWithEffect(tgui::ShowAnimationType::Fade, sf::seconds(0.8f));
+        this->m_button_setting->showWithEffect(tgui::ShowAnimationType::Fade, sf::seconds(0.3f));
 
         this->m_button_exit->setSize(200, 30);
         this->m_button_exit->setTextSize(20);
         this->m_button_exit->setPosition(Screen_With / 2 - 100, 410);
-        this->m_button_exit->showWithEffect(tgui::ShowAnimationType::Fade, sf::seconds(0.8f));
+        this->m_button_exit->showWithEffect(tgui::ShowAnimationType::Fade, sf::seconds(0.3f));
         this->m_button_exit->connect("pressed", [&]() { this->m_data->m_window.close(); });
 
 
@@ -87,15 +87,11 @@ namespace Sw
 
     void MenuScreen::draw()
     {
-        this->m_data->m_window.clear();
-
         this->m_data->m_window.draw(this->m_background);
 
         this->m_data->m_window.draw(this->m_title_game);
 
         this->m_data->m_gui.draw();
-
-        this->m_data->m_window.display();
     }
 
     ////////////////////////////////////////////
@@ -127,10 +123,10 @@ namespace Sw
 
     void MenuScreen::resume()
     {
-        this->m_button_play->showWithEffect(tgui::ShowAnimationType::Fade, sf::seconds(0.8f));
-        this->m_button_infor->showWithEffect(tgui::ShowAnimationType::Fade, sf::seconds(0.8f));
-        this->m_button_setting->showWithEffect(tgui::ShowAnimationType::Fade, sf::seconds(0.8f));
-        this->m_button_exit->showWithEffect(tgui::ShowAnimationType::Fade, sf::seconds(0.8f));
+        this->m_button_play->showWithEffect(tgui::ShowAnimationType::Fade, sf::seconds(0.3f));
+        this->m_button_infor->showWithEffect(tgui::ShowAnimationType::Fade, sf::seconds(0.3f));
+        this->m_button_setting->showWithEffect(tgui::ShowAnimationType::Fade, sf::seconds(0.3f));
+        this->m_button_exit->showWithEffect(tgui::ShowAnimationType::Fade, sf::seconds(0.3f));
 
         this->m_data->m_gui.add(this->m_button_play);
         this->m_data->m_gui.add(this->m_button_infor);

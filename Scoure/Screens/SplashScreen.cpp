@@ -36,13 +36,9 @@ namespace Sw
 
     void SplashScreen::draw()
     {
-        this->m_data->m_window.clear();
-
         this->m_data->m_window.draw(this->m_background);
 
         this->m_data->m_gui.draw();
-
-        this->m_data->m_window.display();
     }
 
     //////////////////////////////////////////////////

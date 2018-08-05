@@ -45,7 +45,7 @@ namespace Engine
 
 #ifdef _DEBUG
 
-        std::cout << "Load Font Success:  " << Path << std::endl;
+        std::cout << "Load Font Success:    " << Path << std::endl;
 
 #endif
 

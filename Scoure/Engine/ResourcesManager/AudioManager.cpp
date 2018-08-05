@@ -48,7 +48,7 @@ namespace Engine
 
 #ifdef _DEBUG
 
-        std::cout << "Load Music Success: " << Path << std::endl;
+        std::cout << "Load Music Success:   " << Path << std::endl;
 
 #endif
 

@@ -182,7 +182,12 @@ namespace Sw
                 this->m_data->m_screen.update();
             }
 
+
+            this->m_data->m_window.clear();
+
             this->m_data->m_screen.draw();
+
+            this->m_data->m_window.display();
         }
     }
 }

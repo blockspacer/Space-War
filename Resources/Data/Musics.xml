@@ -4,5 +4,5 @@
 </Volume>
 
 <Musics>
-	<MainBackground ID = "1">Assets/Audio/MainBackground.ogg</MainBackground>
+	<Music ID = "1">Assets/Audio/MainBackground.ogg</Music>
 </Musics>
