@@ -13,3 +13,4 @@
    * [GLSL](https://en.wikipedia.org/wiki/OpenGL_Shading_Language) 330.
    * Thư viện: [SFML](https://www.sfml-dev.org/) 2.5.x.
    * Thư viện: [TGUI](https://tgui.eu/) 0.8-beta.
+   * Thư viện: [Box2D](https://box2d.org/) 2.3.1.
