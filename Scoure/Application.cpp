@@ -46,6 +46,7 @@ namespace Sw
 
     Application::~Application()
     {
+        this->m_data->m_gui.removeAllWidgets();
     }
 
     ////////////////////////////////////////////////
@@ -73,8 +74,6 @@ namespace Sw
 
     void Application::loadTextures()
     {
-        //Engine::Security::decode("Data/Textures.xml");
-
         tinyxml2::XMLDocument document;
 
         if (document.LoadFile("Data/Textures.xml") == tinyxml2::XMLError::XML_ERROR_FILE_NOT_FOUND)
@@ -90,16 +89,12 @@ namespace Sw
 
             s_textures.load(ID, texture->GetText());
         }
-
-        //Engine::Security::encode("Data/Textures.xml");
     }
 
     ////////////////////////////////////////////////
 
     void Application::loadFonts()
     {
-        //Engine::Security::decode("Data/Fonts.xml");
-
         tinyxml2::XMLDocument document;
         
         if (document.LoadFile("Data/Fonts.xml") == tinyxml2::XMLError::XML_ERROR_FILE_NOT_FOUND)
@@ -115,29 +110,25 @@ namespace Sw
 
             s_fonts.load(ID, font->GetText());
         }
-
-        //Engine::Security::encode("Data/Fonts.xml");
     }
 
     ////////////////////////////////////////////////
 
     void Application::loadAudio()
     {
-        //Engine::Security::decode("Data/Musics.xml");
+        tinyxml2::XMLDocument document_music;
 
-        tinyxml2::XMLDocument document;
-
-        if (document.LoadFile("Data/Musics.xml") == tinyxml2::XMLError::XML_ERROR_FILE_NOT_FOUND)
+        if (document_music.LoadFile("Data/Musics.xml") == tinyxml2::XMLError::XML_ERROR_FILE_NOT_FOUND)
             exit(EXIT_FAILURE);
 
-        tinyxml2::XMLElement* Volume = document.FirstChildElement();
+        tinyxml2::XMLElement* Volume_music = document_music.FirstChildElement();
         
-        int volume;
-        Volume->QueryIntAttribute("volume", &volume);
+        int volume_music;
+        Volume_music->QueryIntAttribute("volume", &volume_music);
 
-        tinyxml2::XMLElement* root = Volume->NextSiblingElement();
+        tinyxml2::XMLElement* root_music = Volume_music->NextSiblingElement();
 
-        for (auto music = root->FirstChildElement(); music != nullptr; music = music->NextSiblingElement())
+        for (auto music = root_music->FirstChildElement(); music != nullptr; music = music->NextSiblingElement())
         {
             int ID;
 
@@ -146,9 +137,31 @@ namespace Sw
             s_audio.loadMusic(ID, music->GetText());
         }
 
-        s_audio.setVolumeMusics((float)volume);
+        s_audio.setVolumeMusics((float)volume_music);
 
-        //Engine::Security::encode("Data/Musics.xml");
+
+        tinyxml2::XMLDocument document_sound;
+
+        if (document_sound.LoadFile("Data/Sounds.xml") == tinyxml2::XMLError::XML_ERROR_FILE_NOT_FOUND)
+            exit(EXIT_FAILURE);
+
+        tinyxml2::XMLElement* Volume_sound = document_sound.FirstChildElement();
+
+        int volume_sound;
+        Volume_sound->QueryIntAttribute("volume", &volume_sound);
+
+        tinyxml2::XMLElement* root_sound = Volume_sound->NextSiblingElement();
+
+        for (auto sound = root_sound->FirstChildElement(); sound != nullptr; sound = sound->NextSiblingElement())
+        {
+            int ID;
+
+            sound->QueryIntAttribute("ID", &ID);
+
+            s_audio.loadSound(ID, sound->GetText());
+        }
+
+        s_audio.setVolumeSounds((float)volume_sound);
 
     }
 

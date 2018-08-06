@@ -45,6 +45,9 @@ namespace Sw
         void scale(float factorX, float factorY) = delete;
         void scale(const sf::Vector2f& factor) = delete;
     };
+
+
+    typedef BaseEntity* EntityPtr;
 }
 
 #endif  //   _SpaceWar_BaseEntity_HPP_

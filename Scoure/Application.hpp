@@ -7,7 +7,6 @@
 #define _SpaceWar_Application_HPP_
 
 #include <SFML/Graphics.hpp>
-#include "Engine/CommonFunctions/Security.hpp"
 #include "Screens/ScreenData.hpp"
 #include "Screens/SplashScreen.hpp"
 #include "TinyXML/tinyxml2.h"

@@ -62,6 +62,7 @@ namespace Sw
         this->m_button_setting->setTextSize(20);
         this->m_button_setting->setPosition(Screen_With / 2 - 100, 340);
         this->m_button_setting->showWithEffect(tgui::ShowAnimationType::Fade, sf::seconds(0.3f));
+        this->m_button_setting->connect("pressed", [&]() { this->m_data->m_screen.addSreen(Engine::ScreenPtr(new SettingScreen(this->m_data)), false); });
 
         this->m_button_exit->setSize(200, 30);
         this->m_button_exit->setTextSize(20);

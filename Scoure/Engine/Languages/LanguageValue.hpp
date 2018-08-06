@@ -11,7 +11,7 @@
 
 #if defined(UNICODE)
 
-static std::wstring s_language_value[8] = {
+static std::wstring s_language_value[9] = {
     L"Vào Chơi",
     L"Thông Tin Game",
     L"Cài Đặt",
@@ -19,12 +19,12 @@ static std::wstring s_language_value[8] = {
     L"Trở Về",
     L"1.0",
     L"Harding Adonis",
-    L"Github"
+    L"Github",
 };
 
 #elif !defined(UNICODE)
 
-static std::string s_language_value[8] = {
+static std::string s_language_value[9] = {
     "Play Game",
     "About Game",
     "Setting",
@@ -32,7 +32,7 @@ static std::string s_language_value[8] = {
     "Back",
     "1.0",
     "Harding Adonis",
-    "Github"
+    "Github",
 };
 
 #endif

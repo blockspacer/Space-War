@@ -10,6 +10,7 @@
 #include <TGUI/TGUI.hpp>
 #include "../Engine/ScreenManager/Screen.hpp"
 #include "InformationScreen.hpp"
+#include "SettingScreen.hpp"
 #include "ScreenData.hpp"
 #include "../Config.hpp"
 
