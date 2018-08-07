@@ -6,6 +6,7 @@
 #ifndef _SpaceWar_StaticValue_HPP_
 #define _SpaceWar_StaticValue_HPP_
 
+#include <SFML/Graphics.hpp>
 #include "Engine/ResourcesManager/TexturesManager.hpp"
 #include "Engine/ResourcesManager/FontsManager.hpp"
 #include "Engine/ResourcesManager/ShadersManager.hpp"
@@ -22,6 +23,8 @@ namespace Sw
     static Engine::ShadersManager    s_shaders;
 
     static Engine::AudioManager      s_audio;
+
+    static sf::Cursor                s_mouse;
 }
 
 #endif  //   _SpaceWar_StaticValue_HPP_

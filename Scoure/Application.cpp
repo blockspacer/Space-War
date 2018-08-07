@@ -30,8 +30,8 @@ namespace Sw
         this->m_data->m_gui.setFont(this->m_data->m_fonts->get(1));
 
         //   Set mouse
-        this->m_mouse.loadFromPixels(s_normal_mouse.pixel_data, sf::Vector2u(s_normal_mouse.width, s_normal_mouse.height), sf::Vector2u(0u, 0u));
-        this->m_data->m_window.setMouseCursor(this->m_mouse);
+        s_mouse.loadFromPixels(s_normal_mouse.pixel_data, sf::Vector2u(s_normal_mouse.width, s_normal_mouse.height), sf::Vector2u(0u, 0u));
+        this->m_data->m_window.setMouseCursor(s_mouse);
 
 
         //   Set Icon

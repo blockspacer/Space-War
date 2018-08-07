@@ -8,11 +8,13 @@
 
 #include <SFML/Graphics.hpp>
 #include <TGUI/TGUI.hpp>
-#include "../Engine/ScreenManager/Screen.hpp"
+#include "GameScreens/Level_1.hpp"
 #include "InformationScreen.hpp"
 #include "SettingScreen.hpp"
 #include "ScreenData.hpp"
+#include "../Engine/ScreenManager/Screen.hpp"
 #include "../Config.hpp"
+#include "../Icon.hpp"
 
 namespace Sw
 {

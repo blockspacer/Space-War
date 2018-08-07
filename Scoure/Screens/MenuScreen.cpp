@@ -51,6 +51,16 @@ namespace Sw
         this->m_button_play->setTextSize(20);
         this->m_button_play->setPosition(Screen_With / 2 - 100, 200);
         this->m_button_play->showWithEffect(tgui::ShowAnimationType::Fade, sf::seconds(0.3f));
+        this->m_button_play->connect("pressed", [&]() {
+
+            s_mouse.loadFromPixels(s_mouse_shoot.pixel_data, sf::Vector2u(s_mouse_shoot.width, s_mouse_shoot.height), sf::Vector2u(s_mouse_shoot.width / 2, s_mouse_shoot.height / 2));
+            this->m_data->m_window.setMouseCursor(s_mouse);
+
+            this->m_data->m_audio->getMusic(1)->stop();
+
+            this->m_data->m_screen.addSreen(Engine::ScreenPtr(new Level_1(this->m_data)), false);
+
+        } );
 
         this->m_button_infor->setSize(200, 30);
         this->m_button_infor->setTextSize(20);

@@ -20,8 +20,6 @@ namespace Sw
     private:
         ScreenDataPtr         m_data;
 
-        sf::Cursor            m_mouse;
-
     private:
         void loadData();
 

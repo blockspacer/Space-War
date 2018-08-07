@@ -8,6 +8,7 @@
 
 #include <SFML/Graphics.hpp>
 #include <map>
+#include "../CommonFunction/CommonFunction.hpp"
 #include "../../Config.hpp"
 
 namespace Engine
