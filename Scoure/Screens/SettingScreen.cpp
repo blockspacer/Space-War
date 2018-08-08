@@ -32,16 +32,16 @@ namespace Sw
 #endif
 
         this->m_title.setOrigin(this->m_title.getGlobalBounds().width / 2, this->m_title.getGlobalBounds().height / 2);
-        this->m_title.setPosition(Screen_With / 2, 100);
+        this->m_title.setPosition(Screen_Width / 2, 100);
 
         this->m_set.setOrigin(this->m_set.getGlobalBounds().width / 2, this->m_set.getGlobalBounds().height / 2);
-        this->m_set.setPosition(Screen_With / 2, Screen_Height / 2 + 30);
+        this->m_set.setPosition(Screen_Width / 2, Screen_Height / 2 + 30);
 
 
-        this->m_value_music.setPosition(Screen_With / 2 - 120, Screen_Height / 2 - 33);
+        this->m_value_music.setPosition(Screen_Width / 2 - 120, Screen_Height / 2 - 33);
 
 
-        this->m_value_sound.setPosition(Screen_With / 2 - 120, Screen_Height / 2 + 60);
+        this->m_value_sound.setPosition(Screen_Width / 2 - 120, Screen_Height / 2 + 60);
 
         this->setupButton();
     }
@@ -75,11 +75,11 @@ namespace Sw
 
 
         this->m_slider_music->setSize(300, 15);
-        this->m_slider_music->setPosition(Screen_With / 2 - 60, Screen_Height / 2 - 25);
+        this->m_slider_music->setPosition(Screen_Width / 2 - 60, Screen_Height / 2 - 25);
         this->m_slider_music->setValue(this->m_data->m_audio->getVolumeMusics());
 
         this->m_slider_sound->setSize(300, 15);
-        this->m_slider_sound->setPosition(Screen_With / 2 - 60, Screen_Height / 2 + 70);
+        this->m_slider_sound->setPosition(Screen_Width / 2 - 60, Screen_Height / 2 + 70);
         this->m_slider_sound->setValue(this->m_data->m_audio->getVolumeSounds());
 
 

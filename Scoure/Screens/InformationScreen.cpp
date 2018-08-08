@@ -30,25 +30,25 @@ namespace Sw
 
 #endif
         this->m_title.setOrigin(this->m_title.getGlobalBounds().width / 2, this->m_title.getGlobalBounds().height / 2);
-        this->m_title.setPosition(Screen_With / 2, 100);
+        this->m_title.setPosition(Screen_Width / 2, 100);
 
 
         this->m_infor.setOrigin(this->m_infor.getGlobalBounds().width / 2, this->m_infor.getGlobalBounds().height / 2);
-        this->m_infor.setPosition(Screen_With / 2, Screen_Height / 2 + 30);
+        this->m_infor.setPosition(Screen_Width / 2, Screen_Height / 2 + 30);
 
         //   Version
         this->m_version.setOrigin(this->m_version.getGlobalBounds().width / 2, this->m_version.getGlobalBounds().height / 2);
-        this->m_version.setPosition(Screen_With / 2 + 30, Screen_Height / 2 - 60);
+        this->m_version.setPosition(Screen_Width / 2 + 30, Screen_Height / 2 - 60);
 
 
         //   Author
         this->m_author.setOrigin(this->m_author.getGlobalBounds().width / 2, this->m_author.getGlobalBounds().height / 2);
-        this->m_author.setPosition(Screen_With / 2 + 30, Screen_Height / 2 + 25);
+        this->m_author.setPosition(Screen_Width / 2 + 30, Screen_Height / 2 + 25);
 
 
         //   Source Code
         this->m_source_code.setOrigin(this->m_source_code.getGlobalBounds().width / 2, this->m_source_code.getGlobalBounds().height / 2);
-        this->m_source_code.setPosition(Screen_With / 2 + 30, Screen_Height / 2 + 105);
+        this->m_source_code.setPosition(Screen_Width / 2 + 30, Screen_Height / 2 + 105);
 
         this->setupButton();
     }
@@ -85,10 +85,12 @@ namespace Sw
         {
             this->m_author.setFillColor(sf::Color::Red);
 
-#if defined(GAME_WINDOW)
+
 
             if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left) && this->m_timer.getElapsedTime().asSeconds() >= 0.1f)
             {
+
+#if defined(GAME_WINDOW)
 
     #if defined(UNICODE)
 
@@ -104,10 +106,16 @@ namespace Sw
 
     #endif
 
-                this->m_timer.restart();
-            }
+#elif defined(GAME_LINUX) || defined(GAME_FREEBSD) || defined(GAME_OPENBSD)
+
+                std::cout << "Facebook: https://www.facebook.com/adonis.harding" << std::endl;
+
+                std::cout << "Youtube: https://www.youtube.com/channel/UCnYMYeV2Y_2bGxoyDBKdT-A?view_as=subscriber" << std::endl;
 
 #endif
+
+                this->m_timer.restart();
+            }
 
         }
         else this->m_author.setFillColor(sf::Color::White);
@@ -118,10 +126,10 @@ namespace Sw
         {
             this->m_source_code.setFillColor(sf::Color::Red);
 
-#if defined(GAME_WINDOW)
-
             if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left) && this->m_timer.getElapsedTime().asSeconds() >= 0.1f)
             {
+
+#if defined(GAME_WINDOW)
 
     #if defined(UNICODE)
 
@@ -133,10 +141,14 @@ namespace Sw
 
     #endif
 
-                this->m_timer.restart();
-            }
+#elif defined(GAME_LINUX) || defined(GAME_FREEBSD) || defined(GAME_OPENBSD)
+
+                std::cout << "Github: https://github.com/hardingadonis/Space-War" << std::endl;
 
 #endif
+
+                this->m_timer.restart();
+            }
 
         }
         else this->m_source_code.setFillColor(sf::Color::White);

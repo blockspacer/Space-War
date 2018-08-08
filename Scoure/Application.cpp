@@ -21,7 +21,7 @@ namespace Sw
 
 
         //   Create Window
-        this->m_data->m_window.create(sf::VideoMode(Screen_With, Screen_Height), Title_Game, sf::Style::Close);
+        this->m_data->m_window.create(sf::VideoMode(Screen_Width, Screen_Height), Title_Game, sf::Style::Close);
         this->m_data->m_window.setFramerateLimit(Screen_Max_Frame);
 
 

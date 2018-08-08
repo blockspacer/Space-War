@@ -19,6 +19,8 @@ namespace Engine
         if (!this->m_texture[ID].loadFromFile(Path))
             Engine::ExitMissingData();
 
+        this->m_texture[ID].setSmooth(true);
+
 #ifdef _DEBUG
 
         std::cout << "Load Texture Success: " << Path << std::endl;

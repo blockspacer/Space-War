@@ -32,7 +32,7 @@ namespace Sw
         /*
         **   This function is used to update data of this
         */
-        virtual void update();
+        virtual void update() = 0;
 
 
         //   Return the pointer of Engine::Hitbox

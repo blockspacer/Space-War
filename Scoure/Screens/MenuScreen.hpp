@@ -8,6 +8,7 @@
 
 #include <SFML/Graphics.hpp>
 #include <TGUI/TGUI.hpp>
+#include "GameScreens/GameScreenData.hpp"
 #include "GameScreens/Level_1.hpp"
 #include "InformationScreen.hpp"
 #include "SettingScreen.hpp"
@@ -22,6 +23,8 @@ namespace Sw
     {
     private:
         ScreenDataPtr               m_data;
+
+        GameScreenDataPtr           m_data_game;
 
         sf::Sprite                  m_title_game;
 

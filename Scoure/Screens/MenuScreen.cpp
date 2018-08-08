@@ -9,6 +9,7 @@ namespace Sw
 {
     MenuScreen::MenuScreen(ScreenDataPtr data) :
         m_data(data),
+        m_data_game(std::make_shared<GameScreenData>()),
         m_background(m_data->m_textures->get(4)),
         m_button_play(tgui::Button::create(Engine::LanguagesManager::getString(1))),
         m_button_infor(tgui::Button::create(Engine::LanguagesManager::getString(2))),
@@ -27,7 +28,7 @@ namespace Sw
 #endif
 
         this->m_title_game.setOrigin(this->m_title_game.getGlobalBounds().width / 2, this->m_title_game.getGlobalBounds().height / 2);
-        this->m_title_game.setPosition(Screen_With / 2, 100);
+        this->m_title_game.setPosition(Screen_Width / 2, 100);
 
         this->setupButton();
 
@@ -49,34 +50,35 @@ namespace Sw
     {
         this->m_button_play->setSize(200, 30);
         this->m_button_play->setTextSize(20);
-        this->m_button_play->setPosition(Screen_With / 2 - 100, 200);
+        this->m_button_play->setPosition(Screen_Width / 2 - 100, 200);
         this->m_button_play->showWithEffect(tgui::ShowAnimationType::Fade, sf::seconds(0.3f));
         this->m_button_play->connect("pressed", [&]() {
 
             s_mouse.loadFromPixels(s_mouse_shoot.pixel_data, sf::Vector2u(s_mouse_shoot.width, s_mouse_shoot.height), sf::Vector2u(s_mouse_shoot.width / 2, s_mouse_shoot.height / 2));
             this->m_data->m_window.setMouseCursor(s_mouse);
+            this->m_data->m_window.setMouseCursorGrabbed(true);
 
             this->m_data->m_audio->getMusic(1)->stop();
 
-            this->m_data->m_screen.addSreen(Engine::ScreenPtr(new Level_1(this->m_data)), false);
+            this->m_data->m_screen.addSreen(Engine::ScreenPtr(new Level_1(this->m_data, this->m_data_game)), false);
 
         } );
 
         this->m_button_infor->setSize(200, 30);
         this->m_button_infor->setTextSize(20);
-        this->m_button_infor->setPosition(Screen_With / 2 - 100, 270);
+        this->m_button_infor->setPosition(Screen_Width / 2 - 100, 270);
         this->m_button_infor->showWithEffect(tgui::ShowAnimationType::Fade, sf::seconds(0.3f));
         this->m_button_infor->connect("pressed", [&]() { this->m_data->m_screen.addSreen(Engine::ScreenPtr(new InformationScreen(this->m_data)), false); });
 
         this->m_button_setting->setSize(200, 30);
         this->m_button_setting->setTextSize(20);
-        this->m_button_setting->setPosition(Screen_With / 2 - 100, 340);
+        this->m_button_setting->setPosition(Screen_Width / 2 - 100, 340);
         this->m_button_setting->showWithEffect(tgui::ShowAnimationType::Fade, sf::seconds(0.3f));
         this->m_button_setting->connect("pressed", [&]() { this->m_data->m_screen.addSreen(Engine::ScreenPtr(new SettingScreen(this->m_data)), false); });
 
         this->m_button_exit->setSize(200, 30);
         this->m_button_exit->setTextSize(20);
-        this->m_button_exit->setPosition(Screen_With / 2 - 100, 410);
+        this->m_button_exit->setPosition(Screen_Width / 2 - 100, 410);
         this->m_button_exit->showWithEffect(tgui::ShowAnimationType::Fade, sf::seconds(0.3f));
         this->m_button_exit->connect("pressed", [&]() { this->m_data->m_window.close(); });
 

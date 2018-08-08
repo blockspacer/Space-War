@@ -7,6 +7,7 @@
 #define _SpaceWar_Level_1_HPP_
 
 #include <SFML/Graphics.hpp>
+#include "GameScreenData.hpp"
 #include "../../Engine/ScreenManager/Screen.hpp"
 #include "../ScreenData.hpp"
 #include "../../Config.hpp"
@@ -18,8 +19,10 @@ namespace Sw
     private:
         ScreenDataPtr                    m_data;
 
+        GameScreenDataPtr               m_data_game;
+
     public:
-        Level_1(ScreenDataPtr data);
+        Level_1(ScreenDataPtr data, GameScreenDataPtr data_game);
 
 
         void handleEvent();

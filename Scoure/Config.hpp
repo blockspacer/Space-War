@@ -27,6 +27,7 @@
 #define Space_War_Version    1.0
 #define PI                   3.14
 #define DegToRad             PI / 180.0
+#define RadToDeg             180.0 / PI
 
 
 //   Should add define UNICODE if you want to use Unicode
@@ -70,7 +71,7 @@
 
 
 //   Information of Screen
-#define Screen_With           900
+#define Screen_Width          900
 #define Screen_Height         550
 #define Screen_Max_Frame      60
 #define Time_A_Frame          sf::seconds(1.f / 60.f)

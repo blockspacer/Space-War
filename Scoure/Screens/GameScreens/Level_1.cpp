@@ -7,8 +7,9 @@
 
 namespace Sw
 {
-    Level_1::Level_1(ScreenDataPtr data) :
-        m_data(data)
+    Level_1::Level_1(ScreenDataPtr data, GameScreenDataPtr data_game) :
+        m_data(data),
+        m_data_game(data_game)
     {
     }
 
