@@ -60,6 +60,15 @@ namespace Sw
 
             this->m_data->m_audio->getMusic(1)->stop();
 
+            this->m_data_game->m_background.setTexture(this->m_data->m_textures->get(13));
+            this->m_data_game->m_background.setOrigin(this->m_data_game->m_background.getGlobalBounds().width / 2, this->m_data_game->m_background.getGlobalBounds().height / 2);
+            this->m_data_game->m_background.setPosition(Screen_Width * 1.5f, Screen_Height * 1.5f);
+
+            this->m_data_game->m_player = new Player(this->m_data->m_textures->get(14), this->m_data->m_textures->get(15));
+            this->m_data_game->m_world = new b2World(b2Vec2(0.f, 0.f));
+
+            this->m_data_game->m_view = this->m_data->m_window.getView();
+
             this->m_data->m_screen.addSreen(Engine::ScreenPtr(new Level_1(this->m_data, this->m_data_game)), false);
 
         } );

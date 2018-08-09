@@ -18,6 +18,8 @@ namespace Sw
     {
         sf::Sprite             m_background;
 
+        sf::View               m_view;
+
         Player*                m_player;
 
         b2World*               m_world;

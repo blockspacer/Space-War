@@ -13,7 +13,8 @@
 	<Texture ID = "10">Assets/Textures/Screens/InforEng.png</Texture>
 	<Texture ID = "11">Assets/Textures/Screens/SetVie.png</Texture>
 	<Texture ID = "12">Assets/Textures/Screens/SetEng.png</Texture>
+	<Texture ID = "13">Assets/Textures/Screens/PlayBackground.png</Texture>
 	<!--Texture of SpaceShip-->
-	<Texture ID = "13">Assets/Textures/SpaceShip/TailSpaceShip.png</Texture>
-	<Texture ID = "14">Assets/Textures/SpaceShip/GunSpaceShip.png</Texture>
+	<Texture ID = "14">Assets/Textures/SpaceShip/TailSpaceShip.png</Texture>
+	<Texture ID = "15">Assets/Textures/SpaceShip/GunSpaceShip.png</Texture>
 </Textures>>

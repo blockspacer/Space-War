@@ -9,7 +9,7 @@ namespace Sw
 {
     SpaceShip::SpaceShip() :
         m_timeReload(10.f),
-        m_inertia(0.9f)
+        m_inertia(0.95f)
     {
     }
 

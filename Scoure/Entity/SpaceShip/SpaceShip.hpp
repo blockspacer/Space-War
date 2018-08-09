@@ -19,6 +19,8 @@ namespace Sw
 
         float                   m_inertia;
 
+        sf::Vector2f            m_path_temp;
+
     public:
         SpaceShip();
         SpaceShip(float timeReload, float inertia);

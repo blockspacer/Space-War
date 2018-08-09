@@ -76,6 +76,11 @@
 #define Screen_Max_Frame      60
 #define Time_A_Frame          sf::seconds(1.f / 60.f)
 
+#define Screen_Play_Width_Min        0
+#define Screen_Play_Height_Min       0
+#define Screen_Play_Width_Max        2700
+#define Screen_Play_Height_Max       1650
+
 
 //   Define Language
 #if defined(UNICODE)            //  Vietnamese

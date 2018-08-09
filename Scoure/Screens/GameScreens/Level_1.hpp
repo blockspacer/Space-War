@@ -21,6 +21,9 @@ namespace Sw
 
         GameScreenDataPtr               m_data_game;
 
+    private:
+        void setView();
+
     public:
         Level_1(ScreenDataPtr data, GameScreenDataPtr data_game);
 
