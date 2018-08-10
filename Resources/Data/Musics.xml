@@ -1,5 +1,5 @@
 <?xml version = "1.0" encoding = "UTF-8"?>
-<Volume volume="0"/>
+<Volume volume="100"/>
 
 <Musics>
     <Music ID="1">Assets/Audio/MainBackground.ogg</Music>

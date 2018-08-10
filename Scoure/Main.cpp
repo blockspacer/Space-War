@@ -2,10 +2,11 @@
 #include <iostream>
 #include "Application.hpp"
 #include "Config.hpp"
-#include "Entity/SpaceShip/Player.hpp"
+#include <stdio.h>
+#include <stdlib.h>
 int main(int argc, char* argv[])
 {
-
+    
 #ifdef _DEBUG
 
     system("Title DEBUG GAME");

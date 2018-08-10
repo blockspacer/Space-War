@@ -8,14 +8,16 @@
 namespace Sw
 {
     SpaceShip::SpaceShip() :
-        m_timeReload(10.f),
-        m_inertia(0.95f)
+        m_maxSpeed(10.f),
+        m_timeReload(1.f),
+        m_inertia(0.99f)
     {
     }
 
     //////////////////////////////////////////////////
 
-    SpaceShip::SpaceShip(float timeReload, float inertia) :
+    SpaceShip::SpaceShip(float maxSpeed, float timeReload, float inertia) :
+        m_maxSpeed(maxSpeed),
         m_timeReload(timeReload),
         m_inertia(inertia)
     {

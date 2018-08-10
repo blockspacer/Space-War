@@ -78,8 +78,8 @@
 
 #define Screen_Play_Width_Min        0
 #define Screen_Play_Height_Min       0
-#define Screen_Play_Width_Max        2700
-#define Screen_Play_Height_Max       1650
+#define Screen_Play_Width_Max        4500
+#define Screen_Play_Height_Max       2750
 
 
 //   Define Language

@@ -15,6 +15,10 @@ namespace Sw
     class SpaceShip : public BaseEntity
     {
     protected:
+        float                   m_maxSpeed;
+
+        float                   m_currentSpeed;
+
         float                   m_timeReload;
 
         float                   m_inertia;
@@ -23,7 +27,7 @@ namespace Sw
 
     public:
         SpaceShip();
-        SpaceShip(float timeReload, float inertia);
+        SpaceShip(float maxSpeed, float timeReload, float inertia);
         SpaceShip(const sf::Texture& texture) = delete;
         SpaceShip(const sf::Texture& texture, const sf::IntRect& rectangle);
 
