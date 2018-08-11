@@ -85,7 +85,7 @@ namespace Sw
 
         float angle = float(std::atan(tan) * RadToDeg);
 
-        if ((int)angle != 90 && (int)angle != 270)
+        if ((int)angle != 90 && (int)angle != -90)
         {
             if (this->m_gun.getPosition().y <= position.y)
                 angle += 180;

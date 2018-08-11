@@ -2,8 +2,7 @@
 #include <iostream>
 #include "Application.hpp"
 #include "Config.hpp"
-#include <stdio.h>
-#include <stdlib.h>
+
 int main(int argc, char* argv[])
 {
     

@@ -87,49 +87,73 @@
 
     #define Title_Game L"Chiến Tranh Vũ Trụ"
 
-    #if (_MSC_VER == 1900)
+    #define SwString std::wstring
 
-        #define To_SwString std::to_wstring
+    //   Visual Studio
+    #if defined(_MSC_VER)
 
-    #elif (_MSC_VER != 1900) && defined(_MSC_VER)
+        #if (_MSC_VER >= 1900) && (_MSC_VER < 2000)
 
-        #error The version of Visual Studio is not support C++ 14
+            #define To_SwString std::to_wstring
 
-    #elif (__GNUC__ >= 6)
+        #else
 
-        #define To_SwString std::to_wstring
+            #error The version of Visual Studio is not support C++ 14
 
-    #else
-
-        #error The version of GNU is not support function std::to_wstring
+        #endif
 
     #endif
 
-    #define SwString std::wstring
+    // GNU Compiler
+    #if defined(__GNUC__)
+
+        #if (__GNUC__ >= 6)
+
+            #define To_SwString std::to_wstring
+
+        #else
+
+            #error The version of GNU Compiler is not support function std::to_wstring
+
+        #endif
+
+    #endif
 
 #elif !defined(UNICODE)          //   English
 
     #define Title_Game "Space War"
 
-    #if (_MSC_VER == 1900)
+    #define SwString std::string
 
-        #define To_SwString std::to_string
+    //   Visual Studio
+    #if defined(_MSC_VER)
 
-    #elif (_MSC_VER != 1900) && defined(_MSC_VER)
+        #if (_MSC_VER >= 1900) && (_MSC_VER < 2000)
 
-        #error The version of Visual Studio is not support C++ 14
+            #define To_SwString std::to_wstring
 
-    #elif (__GNUC__ >= 5)
+        #else
 
-        #define To_SwString std::to_string
+            #error The version of Visual Studio is not support C++ 14
 
-    #else
-
-        #error The version of GNU is not support function std::to_string
+        #endif
 
     #endif
 
-    #define SwString std::string
+    // GNU Compiler
+    #if defined(__GNUC__)
+
+        #if (__GNUC__ >= 5)
+
+            #define To_SwString std::to_wstring
+
+        #else
+
+            #error The version of GNU Compiler is not support function std::to_wstring
+
+        #endif
+
+    #endif
 
 #endif
 

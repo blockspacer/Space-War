@@ -8,7 +8,7 @@
 namespace Sw
 {
     SpaceShip::SpaceShip() :
-        m_maxSpeed(10.f),
+        m_maxSpeed(15.f),
         m_timeReload(1.f),
         m_inertia(0.99f)
     {

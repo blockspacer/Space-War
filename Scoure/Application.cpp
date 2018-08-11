@@ -29,8 +29,9 @@ namespace Sw
         this->m_data->m_gui.setTarget(this->m_data->m_window);
         this->m_data->m_gui.setFont(this->m_data->m_fonts->get(1));
 
+
         //   Set mouse
-        s_mouse.loadFromPixels(s_normal_mouse.pixel_data, sf::Vector2u(s_normal_mouse.width, s_normal_mouse.height), sf::Vector2u(0u, 0u));
+        s_mouse.loadFromPixels(s_normal_mouse.pixel_data, sf::Vector2u(s_normal_mouse.width, s_normal_mouse.height), sf::Vector2u(5u, 5u));
         this->m_data->m_window.setMouseCursor(s_mouse);
 
 
