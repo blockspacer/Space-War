@@ -57,7 +57,11 @@ namespace Sw
 
 #ifdef _DEBUG
 
+        Engine::SetTextColor(12);
+
         std::cout << "Space War - DEBUG: Load Data\n";
+
+        Engine::SetTextColor(14);
 
 #endif
 

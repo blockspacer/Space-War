@@ -38,21 +38,4 @@ namespace Engine
 
         return s_cos_value[degrees];
     }
-
-    //////////////////////////////////////////
-
-    double Math::tan(int degrees)
-    {
-        while (degrees > 359)
-        {
-            degrees -= 360;
-        }
-
-        while (degrees < 0)
-        {
-            degrees += 360;
-        }
-
-        return s_tan_value[degrees];
-    }
 }

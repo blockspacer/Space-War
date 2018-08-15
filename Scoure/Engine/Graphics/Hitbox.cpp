@@ -11,10 +11,6 @@ namespace Engine
         m_size(0.f, 0.f),
         m_rect(sf::PrimitiveType::LineStrip, 5)
     {
-        //this->m_rect.resize(5);
-
-        //this->m_rect.setPrimitiveType(sf::PrimitiveType::LinesStrip);
-
         this->m_rect[0].color = sf::Color::Yellow;
         this->m_rect[1].color = sf::Color::Yellow;
         this->m_rect[2].color = sf::Color::Yellow;

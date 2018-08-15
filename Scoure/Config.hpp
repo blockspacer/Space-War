@@ -28,6 +28,7 @@
 #define PI                   3.14
 #define DegToRad             PI / 180.0
 #define RadToDeg             180.0 / PI
+#define MaxSizeTexture       4550
 
 
 //   Should add define UNICODE if you want to use Unicode

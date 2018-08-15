@@ -16,15 +16,15 @@ namespace Engine
 
 #if defined(GAME_WINDOW)
 
-#if defined(UNICODE)
+    #if defined(UNICODE)
 
         MessageBox(nullptr, L"Có vẻ như không đủ dữ liệu để khởi động game !!!\nBạn vui lòng kiểm tra lại !!!", L"Thông Báo", MB_ICONHAND);
 
-#else
+    #else
 
         MessageBox(nullptr, "Looks like there is not enough data to start the game !!!\nYou should check again !!!", "Notification", MB_ICONHAND);
 
-#endif
+    #endif
 
 #elif !defined(GAME_LINUX) || defined(GAME_FREEBSD) || defined(GAME_OPENBSD)
 
@@ -38,6 +38,27 @@ namespace Engine
         exit(EXIT_FAILURE);
 
     }
+
+#ifdef _DEBUG
+
+    inline void SetTextColor(int color)
+    {
+        SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), color);
+    }
+
+    inline void HideCursor()
+    {
+        CONSOLE_CURSOR_INFO Infor;
+
+        Infor.bVisible = FALSE;
+
+        Infor.dwSize = 10;
+
+        SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &Infor);
+    }
+
+#endif
+
 }
 
 #endif  //   _SpaceWar_CommonFunction_HPP_

@@ -2,30 +2,38 @@
 #include <iostream>
 #include "Application.hpp"
 #include "Config.hpp"
-
+#include "Engine/CommonFunction/CommonFunction.hpp"
 int main(int argc, char* argv[])
 {
     
 #ifdef _DEBUG
 
-    system("Title DEBUG GAME");
+    #ifdef UNICODE
 
-    system("color A");
+    SetConsoleTitle(L"Chiến Tranh Vũ Trụ");
+
+    #else
+
+    SetConsoleTitle("Space War");
+
+    #endif
+
+    Engine::HideCursor();
 
 #endif
 
-    if (!sf::Shader::isAvailable())
+    if (!sf::Shader::isAvailable() || sf::Texture::getMaximumSize() < MaxSizeTexture)
     {
 
 #ifdef GAME_WINDOW
 
     #if defined(UNICODE)
 
-        MessageBox(nullptr, L"Máy tính bạn không hỗ trợ Shader !!!\nNên bạn không thể chơi game này !!!", L"Thông Báo", MB_ICONHAND);
+        MessageBox(nullptr, L"Máy tính bạn không được Game hỗ trợ !!!\nNên bạn không thể chơi game này !!!", L"Thông Báo", MB_ICONHAND);
 
     #elif !defined(UNICODE)
 
-        MessageBox(nullptr, "Your computer doesn't support Shader !!!\nYou can't play this game !!!", "Notification", MB_ICONHAND);
+        MessageBox(nullptr, "Your computer is not supported !!!\nYou can't play this game !!!", "Notification", MB_ICONHAND);
 
     #endif
 
@@ -33,7 +41,7 @@ int main(int argc, char* argv[])
 
     #if defined(GAME_LINUX) || defined(GAME_FREEBSD) || defined(GAME_OPENBSD)
 
-        std::cout << "Your computer doesn't support Shader !!!\nYou can't play this game !!!" << std::endl;
+        std::cout << "Your computer is not supported !!!\nYou can't play this game !!!" << std::endl;
 
         std::cin.get();
 
