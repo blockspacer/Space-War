@@ -9,6 +9,7 @@
 #include <SFML/Graphics.hpp>
 #include <Box2D/Box2D.h>
 #include <memory>
+#include "../../Engine/Aalgorithms/QuadTree.hpp"
 #include "../../Entity/SpaceShip/Player.hpp"
 #include "../../Config.hpp"
 

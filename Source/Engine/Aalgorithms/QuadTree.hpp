@@ -7,7 +7,7 @@
 #define _SpaceWar_QuadTree_HPP_
 
 #include <SFML/Graphics.hpp>
-#include <list>
+#include <vector>
 #include "../../Entity/BaseEntity/BaseEntity.hpp"
 #include "../Graphics/FrameBox.hpp"
 #include "../../Config.hpp"
@@ -32,25 +32,36 @@ namespace Engine
     class QuadTree
     {
     private:
-        int                 m_level;
+        int                           m_level;
 
-        sf::FloatRect       m_region;
-
-
-        QuadTree*           m_node_1;
-        QuadTree*           m_node_2;
-        QuadTree*           m_node_3;
-        QuadTree*           m_node_4;
+        sf::FloatRect                 m_region;
 
 
+        QuadTree*                     m_node_1;
+        QuadTree*                     m_node_2;
+        QuadTree*                     m_node_3;
+        QuadTree*                     m_node_4;
+
+
+        std::vector<Sw::EntityPtr>*   m_list_entity;
 
     private:
         void slip();
 
+        bool isContain(Sw::EntityPtr entity);
 
     public:
         QuadTree(int level, sf::FloatRect region);
 
+        //   Clear all nodes
+        void clear();
+
+
+
+
+
+        //   Creat a new Quadtree
+        static QuadTree* create(sf::FloatRect region);
     };
 }
 
