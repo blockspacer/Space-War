@@ -9,11 +9,12 @@
 #include <SFML/Graphics.hpp>
 #include <map>
 #include "../CommonFunction/CommonFunction.hpp"
+#include "../DesignPattern/Singleton.hpp"
 #include "../../Config.hpp"
 
 namespace Engine
 {
-    class TexturesManager
+    class TexturesManager : public Singleton<TexturesManager>
     {
     private:
         std::map<int, sf::Texture>         m_texture;

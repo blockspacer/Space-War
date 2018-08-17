@@ -9,11 +9,12 @@
 #include <SFML/Graphics.hpp>
 #include <map>
 #include "../CommonFunction/CommonFunction.hpp"
+#include "../DesignPattern/Singleton.hpp"
 #include "../../Config.hpp"
 
 namespace Engine
 {
-    class FontsManager
+    class FontsManager : public Singleton<FontsManager>
     {
     private:
         std::map<int, sf::Font>         m_font;

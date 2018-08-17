@@ -18,6 +18,8 @@ int main(int argc, char* argv[])
 
     #endif
 
+    Engine::SetSizeWindow(80, 30);
+
     Engine::HideCursor();
 
 #endif

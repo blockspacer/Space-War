@@ -9,18 +9,18 @@ namespace Sw
 {
     InformationScreen::InformationScreen(ScreenDataPtr data) :
         m_data(data),
-        m_background(m_data->m_textures->get(4)),
+        m_background(Engine::TexturesManager::getInstance()->get(4)),
         m_button_back(tgui::Button::create(Engine::LanguagesManager::getString(5))),
-        m_version(Engine::LanguagesManager::getString(6), m_data->m_fonts->get(1), 25),
-        m_author(Engine::LanguagesManager::getString(7), m_data->m_fonts->get(1), 25),
-        m_source_code(Engine::LanguagesManager::getString(8), m_data->m_fonts->get(1), 25)
+        m_version(Engine::LanguagesManager::getString(6), Engine::FontsManager::getInstance()->get(1), 25),
+        m_author(Engine::LanguagesManager::getString(7), Engine::FontsManager::getInstance()->get(1), 25),
+        m_source_code(Engine::LanguagesManager::getString(8), Engine::FontsManager::getInstance()->get(1), 25)
     {
 
 #if defined(UNICODE)
 
-        this->m_title.setTexture(this->m_data->m_textures->get(5));
+        this->m_title.setTexture(Engine::TexturesManager::getInstance()->get(5));
 
-        this->m_infor.setTexture(this->m_data->m_textures->get(9));
+        this->m_infor.setTexture(Engine::TexturesManager::getInstance()->get(9));
 
 #else
 

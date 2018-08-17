@@ -10,14 +10,15 @@ namespace Sw
     Application::Application() :
         m_data(std::make_shared<ScreenData>())
     {
+        //   Init Data
+        Engine::TexturesManager::getInstance()->init();
+        Engine::ShadersManager::getInstance()->init();
+        Engine::FontsManager::getInstance()->init();
+        Engine::AudioManager::getInstance()->init();
+        
+
         //   Load Data
         this->loadData();
-
-        //   Data Transmission
-        this->m_data->m_textures    = &s_textures;
-        this->m_data->m_fonts       = &s_fonts;
-        this->m_data->m_shaders     = &s_shaders;
-        this->m_data->m_audio       = &s_audio;
 
 
         //   Create Window
@@ -27,7 +28,7 @@ namespace Sw
 
         //   Set GUI
         this->m_data->m_gui.setTarget(this->m_data->m_window);
-        this->m_data->m_gui.setFont(this->m_data->m_fonts->get(1));
+        this->m_data->m_gui.setFont(Engine::FontsManager::getInstance()->get(1));
 
 
         //   Set mouse
@@ -59,7 +60,13 @@ namespace Sw
 
         Engine::SetTextColor(12);
 
-        std::cout << "Space War - DEBUG: Load Data\n";
+        Engine::Goto_XY(31, 0);
+
+        std::cout << "Space War - DEBUG\n";
+
+        Engine::SetTextColor(10);
+
+        std::cout << "- Load Data:\n";
 
         Engine::SetTextColor(14);
 
@@ -92,7 +99,7 @@ namespace Sw
 
             texture->QueryIntAttribute("ID", &ID);
 
-            s_textures.load(ID, texture->GetText());
+            Engine::TexturesManager::getInstance()->load(ID, texture->GetText());
         }
     }
 
@@ -113,7 +120,7 @@ namespace Sw
 
             font->QueryIntAttribute("ID", &ID);
 
-            s_fonts.load(ID, font->GetText());
+            Engine::FontsManager::getInstance()->load(ID, font->GetText());
         }
     }
 
@@ -139,10 +146,10 @@ namespace Sw
 
             music->QueryIntAttribute("ID", &ID);
 
-            s_audio.loadMusic(ID, music->GetText());
+            Engine::AudioManager::getInstance()->loadMusic(ID, music->GetText());
         }
 
-        s_audio.setVolumeMusics((float)volume_music);
+        Engine::AudioManager::getInstance()->setVolumeMusics((float)volume_music);
 
 
         tinyxml2::XMLDocument document_sound;
@@ -163,10 +170,10 @@ namespace Sw
 
             sound->QueryIntAttribute("ID", &ID);
 
-            s_audio.loadSound(ID, sound->GetText());
+            Engine::AudioManager::getInstance()->loadSound(ID, sound->GetText());
         }
 
-        s_audio.setVolumeSounds((float)volume_sound);
+        Engine::AudioManager::getInstance()->setVolumeSounds((float)volume_sound);
 
     }
 

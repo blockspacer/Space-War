@@ -21,7 +21,7 @@ namespace Engine
 
 #ifdef _DEBUG
 
-        std::cout << "Load Shader Success: " << Path << std::endl;
+        std::cout << " + Load Shader Success: " << Path << std::endl;
 
 #endif
 
@@ -36,7 +36,7 @@ namespace Engine
 
 #ifdef _DEBUG
 
-        std::cout << "Load Shader Success: " << PathVert << "  " << PathFrag << std::endl;
+        std::cout << " + Load Shader Success: " << PathVert << "  " << PathFrag << std::endl;
 
 #endif
 

@@ -9,19 +9,19 @@ namespace Sw
 {
     SettingScreen::SettingScreen(ScreenDataPtr data) :
         m_data(data),
-        m_background(m_data->m_textures->get(4)),
+        m_background(Engine::TexturesManager::getInstance()->get(4)),
         m_button_back(tgui::Button::create(Engine::LanguagesManager::getString(5))),
-        m_value_music(To_SwString((int)m_data->m_audio->getVolumeMusics()), m_data->m_fonts->get(1), 25),
-        m_value_sound(To_SwString((int)m_data->m_audio->getVolumeSounds()), m_data->m_fonts->get(1), 25),
+        m_value_music(To_SwString((int)Engine::AudioManager::getInstance()->getVolumeMusics()), Engine::FontsManager::getInstance()->get(1), 25),
+        m_value_sound(To_SwString((int)Engine::AudioManager::getInstance()->getVolumeSounds()), Engine::FontsManager::getInstance()->get(1), 25),
         m_slider_music(tgui::Slider::create(0.f, 100.f)),
         m_slider_sound(tgui::Slider::create(0.f, 100.f))
     {
 
 #if defined(UNICODE)
 
-        this->m_title.setTexture(this->m_data->m_textures->get(7));
+        this->m_title.setTexture(Engine::TexturesManager::getInstance()->get(7));
 
-        this->m_set.setTexture(this->m_data->m_textures->get(11));
+        this->m_set.setTexture(Engine::TexturesManager::getInstance()->get(11));
 
 #else
 
@@ -76,11 +76,11 @@ namespace Sw
 
         this->m_slider_music->setSize(300, 15);
         this->m_slider_music->setPosition(Screen_Width / 2 - 60, Screen_Height / 2 - 25);
-        this->m_slider_music->setValue(this->m_data->m_audio->getVolumeMusics());
+        this->m_slider_music->setValue(Engine::AudioManager::getInstance()->getVolumeMusics());
 
         this->m_slider_sound->setSize(300, 15);
         this->m_slider_sound->setPosition(Screen_Width / 2 - 60, Screen_Height / 2 + 70);
-        this->m_slider_sound->setValue(this->m_data->m_audio->getVolumeSounds());
+        this->m_slider_sound->setValue(Engine::AudioManager::getInstance()->getVolumeSounds());
 
 
         this->m_data->m_gui.add(this->m_button_back);
@@ -131,12 +131,12 @@ namespace Sw
         {
             this->m_value_music.setString(To_SwString((int)this->m_slider_music->getValue()));
 
-            this->m_data->m_audio->setVolumeMusics(this->m_slider_music->getValue());
+            Engine::AudioManager::getInstance()->setVolumeMusics(this->m_slider_music->getValue());
 
 
             this->m_value_sound.setString(To_SwString((int)this->m_slider_sound->getValue()));
 
-            this->m_data->m_audio->setVolumeSounds(this->m_slider_sound->getValue());
+            Engine::AudioManager::getInstance()->setVolumeSounds(this->m_slider_sound->getValue());
         }
 
     }

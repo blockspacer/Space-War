@@ -10,7 +10,7 @@ namespace Sw
     MenuScreen::MenuScreen(ScreenDataPtr data) :
         m_data(data),
         m_data_game(std::make_shared<GameScreenData>()),
-        m_background(m_data->m_textures->get(4)),
+        m_background(Engine::TexturesManager::getInstance()->get(4)),
         m_button_play(tgui::Button::create(Engine::LanguagesManager::getString(1))),
         m_button_infor(tgui::Button::create(Engine::LanguagesManager::getString(2))),
         m_button_setting(tgui::Button::create(Engine::LanguagesManager::getString(3))),
@@ -19,7 +19,7 @@ namespace Sw
 
 #if defined(UNICODE)
 
-        this->m_title_game.setTexture(this->m_data->m_textures->get(2));
+        this->m_title_game.setTexture(Engine::TexturesManager::getInstance()->get(2));
 
 #elif !defined(UNICODE)
 
@@ -33,15 +33,15 @@ namespace Sw
         this->setupButton();
 
         //   Play sound
-        this->m_data->m_audio->getMusic(1)->setLoop(true);
-        this->m_data->m_audio->getMusic(1)->play();
+        Engine::AudioManager::getInstance()->getMusic(1)->setLoop(true);
+        Engine::AudioManager::getInstance()->getMusic(1)->play();
     }
 
     ////////////////////////////////////////////
 
     MenuScreen::~MenuScreen()
     {
-        this->m_data->m_audio->getMusic(1)->stop();
+        Engine::AudioManager::getInstance()->getMusic(1)->stop();
     }
 
     ////////////////////////////////////////////
@@ -58,13 +58,13 @@ namespace Sw
             this->m_data->m_window.setMouseCursor(s_mouse);
             this->m_data->m_window.setMouseCursorGrabbed(true);
 
-            this->m_data->m_audio->getMusic(1)->stop();
+            Engine::AudioManager::getInstance()->getMusic(1)->stop();
 
-            this->m_data_game->m_background.setTexture(this->m_data->m_textures->get(13));
+            this->m_data_game->m_background.setTexture(Engine::TexturesManager::getInstance()->get(13));
             this->m_data_game->m_background.setOrigin(this->m_data_game->m_background.getGlobalBounds().width / 2, this->m_data_game->m_background.getGlobalBounds().height / 2);
             this->m_data_game->m_background.setPosition(Screen_Width * 2.5f, Screen_Height * 2.5f);
 
-            this->m_data_game->m_player = new Player(this->m_data->m_textures->get(14), this->m_data->m_textures->get(15));
+            this->m_data_game->m_player = new Player(Engine::TexturesManager::getInstance()->get(14), Engine::TexturesManager::getInstance()->get(15));
             this->m_data_game->m_world = new b2World(b2Vec2(0.f, 0.f));
 
             this->m_data_game->m_view = this->m_data->m_window.getView();

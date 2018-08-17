@@ -39,12 +39,14 @@ namespace Engine
 
     }
 
-#ifdef _DEBUG
+#if defined(_DEBUG) && defined(_WIN32)
 
     inline void SetTextColor(int color)
     {
         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), color);
     }
+
+    ////////////////////////////////////////////////////////////////////
 
     inline void HideCursor()
     {
@@ -55,6 +57,35 @@ namespace Engine
         Infor.dwSize = 10;
 
         SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &Infor);
+    }
+
+    ////////////////////////////////////////////////////////////////////
+
+    inline void SetSizeWindow(int Width, int Height)
+    {
+        _COORD coord;
+        coord.X = Width;
+        coord.Y = Height;
+
+        _SMALL_RECT Rect;
+        Rect.Top = 0;
+        Rect.Left = 0;
+        Rect.Bottom = Height - 1;
+        Rect.Right = Width - 1;
+
+        HANDLE Handle = GetStdHandle(STD_OUTPUT_HANDLE);
+        SetConsoleScreenBufferSize(Handle, coord);
+        SetConsoleWindowInfo(Handle, TRUE, &Rect);
+    }
+
+    ////////////////////////////////////////////////////////////////////
+
+    inline void Goto_XY(short column, short line)
+    {
+        COORD coord;
+        coord.X = column;
+        coord.Y = line;
+        SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
     }
 
 #endif

@@ -11,7 +11,7 @@
 
 namespace Engine
 {
-    template<typename Template>
+    template<class Template>
     class Singleton
     {
     protected:
@@ -21,9 +21,34 @@ namespace Engine
         Singleton() = default;
         ~Singleton() = default;
 
+        static void init()
+        {
+            if (m_instance == nullptr)
+                m_instance = new Template();
+        }
 
-        static Template* getInstance();
+        ///////////////////////////////////////
+
+        static void release()
+        {
+            if (m_instance != nullptr)
+            {
+                delete m_instance;
+
+                m_instance = nullptr;
+            }
+        }
+
+        ///////////////////////////////////////
+
+        static Template* getInstance()
+        {
+            return m_instance;
+        }
     };
+
+    template<class Template>
+    Template* Singleton<Template>::m_instance = nullptr;
 }
 
 #endif  //   _SpaceWar_Singleton_HPP_

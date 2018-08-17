@@ -9,11 +9,12 @@
 #include <SFML/Audio.hpp>
 #include <map>
 #include "../CommonFunction/CommonFunction.hpp"
+#include "../DesignPattern/Singleton.hpp"
 #include "../../Config.hpp"
 
 namespace Engine
 {
-    class AudioManager
+    class AudioManager : public Singleton<AudioManager>
     {
     private:
         std::map<int, sf::Music>           m_musics;

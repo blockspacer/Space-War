@@ -11,7 +11,10 @@
 #include <memory>
 #include "../Engine/ScreenManager/ScreenManager.hpp"
 #include "../Engine/Languages/LanguagesManager.hpp"
-#include "../StaticValue.hpp"
+#include "../Engine/ResourcesManager/AudioManager.hpp"
+#include "../Engine/ResourcesManager/FontsManager.hpp"
+#include "../Engine/ResourcesManager/ShadersManager.hpp"
+#include "../Engine/ResourcesManager/TexturesManager.hpp"
 #include "../Config.hpp"
 
 namespace Sw
@@ -23,14 +26,6 @@ namespace Sw
         tgui::Gui                       m_gui;
 
         Engine::ScreenManager           m_screen;
-
-        Engine::TexturesManager*        m_textures;
-
-        Engine::FontsManager*           m_fonts;
-
-        Engine::ShadersManager*         m_shaders;
-
-        Engine::AudioManager*           m_audio;
     };
 
     typedef std::shared_ptr<ScreenData> ScreenDataPtr;

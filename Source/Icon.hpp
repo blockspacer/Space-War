@@ -665,4 +665,9 @@ static const struct {
 };
 
 
+namespace Sw
+{
+    static sf::Cursor s_mouse;
+}
+
 #endif  //   _SpaceWar_Icon_HPP_

@@ -9,11 +9,12 @@
 #include <SFML/Graphics.hpp>
 #include <map>
 #include "../CommonFunction/CommonFunction.hpp"
+#include "../DesignPattern/Singleton.hpp"
 #include "../../Config.hpp"
 
 namespace Engine
 {
-    class ShadersManager
+    class ShadersManager : public Singleton<ShadersManager>
     {
     private:
         std::map<int, sf::Shader>       m_shaders;
