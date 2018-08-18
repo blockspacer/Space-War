@@ -15,6 +15,7 @@ namespace Sw
         Engine::ShadersManager::getInstance()->init();
         Engine::FontsManager::getInstance()->init();
         Engine::AudioManager::getInstance()->init();
+        Engine::ScreenManager::getInstance()->init();
         
 
         //   Load Data
@@ -41,7 +42,7 @@ namespace Sw
 
 
         //   Add new Screen
-        this->m_data->m_screen.addSreen(Engine::ScreenPtr(new SplashScreen(this->m_data)));
+        Engine::ScreenManager::getInstance()->addSreen(Engine::ScreenPtr(new SplashScreen(this->m_data)));
     }
 
     ////////////////////////////////////////////////
@@ -49,6 +50,13 @@ namespace Sw
     Application::~Application()
     {
         this->m_data->m_gui.removeAllWidgets();
+
+
+        Engine::ScreenManager::getInstance()->release();
+        Engine::TexturesManager::getInstance()->release();
+        Engine::ShadersManager::getInstance()->release();
+        Engine::FontsManager::getInstance()->release();
+        Engine::AudioManager::getInstance()->release();
     }
 
     ////////////////////////////////////////////////
@@ -56,7 +64,7 @@ namespace Sw
     void Application::loadData()
     {
 
-#ifdef _DEBUG
+#ifdef DEBUG_GAME
 
         Engine::SetTextColor(12);
 
@@ -194,7 +202,7 @@ namespace Sw
 
         while (this->m_data->m_window.isOpen())
         {
-            this->m_data->m_screen.handleEvent();
+            Engine::ScreenManager::getInstance()->handleEvent();
 
             timeLastFrame += timer.restart();
 
@@ -202,15 +210,15 @@ namespace Sw
             {
                 timeLastFrame -= Time_A_Frame;
 
-                this->m_data->m_screen.handleEvent();
+                Engine::ScreenManager::getInstance()->handleEvent();
 
-                this->m_data->m_screen.update();
+                Engine::ScreenManager::getInstance()->update();
             }
 
 
             this->m_data->m_window.clear();
 
-            this->m_data->m_screen.draw();
+            Engine::ScreenManager::getInstance()->draw();
 
             this->m_data->m_window.display();
         }

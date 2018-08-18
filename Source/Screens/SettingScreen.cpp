@@ -69,7 +69,7 @@ namespace Sw
 
             this->saveData();
 
-            this->m_data->m_screen.removeScreen(); 
+            Engine::ScreenManager::getInstance()->removeScreen(); 
         });
 
 

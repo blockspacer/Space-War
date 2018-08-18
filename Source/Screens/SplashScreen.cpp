@@ -27,7 +27,7 @@ namespace Sw
         
         if (this->m_timer.getElapsedTime().asSeconds() > 1.5f)
         {
-            this->m_data->m_screen.addSreen(Engine::ScreenPtr(new MenuScreen(this->m_data)));
+            Engine::ScreenManager::getInstance()->addSreen(Engine::ScreenPtr(new MenuScreen(this->m_data)));
         }
         
     }

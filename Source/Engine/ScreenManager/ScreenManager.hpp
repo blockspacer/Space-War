@@ -8,11 +8,12 @@
 
 #include <iostream>
 #include "Screen.hpp"
+#include "../DesignPattern/Singleton.hpp"
 #include "../../Config.hpp"
 
 namespace Engine
 {
-    class ScreenManager
+    class ScreenManager : public Singleton<ScreenManager>
     {
     private:
         ScreenPtr              m_belowScreen;

@@ -68,7 +68,7 @@ namespace Sw
         this->m_button_back->setTextSize(20);
         this->m_button_back->setPosition(50.f, 480.f);
         this->m_button_back->showWithEffect(tgui::ShowAnimationType::Fade, sf::seconds(0.3f));
-        this->m_button_back->connect("pressed", [&]() { this->m_data->m_screen.removeScreen(); });
+        this->m_button_back->connect("pressed", [&]() { Engine::ScreenManager::getInstance()->removeScreen(); });
 
         this->m_data->m_gui.add(this->m_button_back);
     }

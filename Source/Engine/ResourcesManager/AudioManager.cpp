@@ -9,6 +9,13 @@ namespace Engine
 {
     AudioManager::~AudioManager()
     {
+        for (auto it = this->m_sounds.begin(); it != this->m_sounds.end(); it++)
+            it->second.stop();
+
+        for (auto it = this->m_musics.begin(); it != this->m_musics.end(); it++)
+            it->second.stop();
+
+
         this->m_buffers.clear();
 
         this->m_sounds.clear();
@@ -23,7 +30,7 @@ namespace Engine
         if (!this->m_musics[ID].openFromFile(Path))
             Engine::ExitMissingData();
 
-#ifdef _DEBUG
+#ifdef DEBUG_GAME
 
         std::cout << " + Load Music Success:   " << Path << std::endl;
 
@@ -40,7 +47,7 @@ namespace Engine
 
         this->m_sounds[ID].setBuffer(this->m_buffers[ID]);
 
-#ifdef _DEBUG
+#ifdef DEBUG_GAME
 
         std::cout << " + Load Sound Success: " << Path << std::endl;
 

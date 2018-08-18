@@ -21,7 +21,7 @@ namespace Engine
 
         this->m_texture[ID].setSmooth(true);
 
-#ifdef _DEBUG
+#ifdef DEBUG_GAME
 
         std::cout << " + Load Texture Success: " << Path << std::endl;
 

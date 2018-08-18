@@ -60,6 +60,8 @@ namespace Sw
 
             Engine::AudioManager::getInstance()->getMusic(1)->stop();
 
+            EntityManager::getInstance()->init();
+
             this->m_data_game->m_background.setTexture(Engine::TexturesManager::getInstance()->get(13));
             this->m_data_game->m_background.setOrigin(this->m_data_game->m_background.getGlobalBounds().width / 2, this->m_data_game->m_background.getGlobalBounds().height / 2);
             this->m_data_game->m_background.setPosition(Screen_Width * 2.5f, Screen_Height * 2.5f);
@@ -69,7 +71,7 @@ namespace Sw
 
             this->m_data_game->m_view = this->m_data->m_window.getView();
 
-            this->m_data->m_screen.addSreen(Engine::ScreenPtr(new Level_1(this->m_data, this->m_data_game)), false);
+            Engine::ScreenManager::getInstance()->addSreen(Engine::ScreenPtr(new Level_1(this->m_data, this->m_data_game)), false);
 
         } );
 
@@ -77,13 +79,13 @@ namespace Sw
         this->m_button_infor->setTextSize(20);
         this->m_button_infor->setPosition(Screen_Width / 2 - 100, 270);
         this->m_button_infor->showWithEffect(tgui::ShowAnimationType::Fade, sf::seconds(0.3f));
-        this->m_button_infor->connect("pressed", [&]() { this->m_data->m_screen.addSreen(Engine::ScreenPtr(new InformationScreen(this->m_data)), false); });
+        this->m_button_infor->connect("pressed", [&]() { Engine::ScreenManager::getInstance()->addSreen(Engine::ScreenPtr(new InformationScreen(this->m_data)), false); });
 
         this->m_button_setting->setSize(200, 30);
         this->m_button_setting->setTextSize(20);
         this->m_button_setting->setPosition(Screen_Width / 2 - 100, 340);
         this->m_button_setting->showWithEffect(tgui::ShowAnimationType::Fade, sf::seconds(0.3f));
-        this->m_button_setting->connect("pressed", [&]() { this->m_data->m_screen.addSreen(Engine::ScreenPtr(new SettingScreen(this->m_data)), false); });
+        this->m_button_setting->connect("pressed", [&]() { Engine::ScreenManager::getInstance()->addSreen(Engine::ScreenPtr(new SettingScreen(this->m_data)), false); });
 
         this->m_button_exit->setSize(200, 30);
         this->m_button_exit->setTextSize(20);

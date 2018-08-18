@@ -11,6 +11,10 @@ namespace Sw
         m_data(data),
         m_data_game(data_game)
     {
+
+        EntityManager::getInstance()->getListEntity()->push_back(this->m_data_game->m_player);
+
+        this->m_data_game->m_quadtree = Engine::QuadTree::create(sf::FloatRect(0.f, 0.f, Screen_Width * 5, Screen_Height * 5));
     }
 
     //////////////////////////////////////////////
@@ -49,13 +53,25 @@ namespace Sw
 
     void Level_1::draw()
     {
+
+#ifndef DEBUG_GAME
+
         this->m_data->m_window.draw(this->m_data_game->m_background);
+
+#endif
 
         this->m_data->m_gui.draw();
 
         this->m_data->m_window.draw(*this->m_data_game->m_player);
 
         this->m_data_game->m_player->drawGun(this->m_data->m_window);
+
+#ifdef DEBUG_GAME
+
+        this->m_data_game->m_quadtree->draw(this->m_data->m_window);
+
+#endif
+
     }
 
     //////////////////////////////////////////////

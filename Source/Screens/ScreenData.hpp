@@ -24,8 +24,6 @@ namespace Sw
         sf::RenderWindow                m_window;
 
         tgui::Gui                       m_gui;
-
-        Engine::ScreenManager           m_screen;
     };
 
     typedef std::shared_ptr<ScreenData> ScreenDataPtr;

@@ -19,7 +19,7 @@ namespace Engine
         if (!this->m_shaders[ID].loadFromFile(Path, type))
             Engine::ExitMissingData();
 
-#ifdef _DEBUG
+#ifdef DEBUG_GAME
 
         std::cout << " + Load Shader Success: " << Path << std::endl;
 
@@ -34,7 +34,7 @@ namespace Engine
         if (!this->m_shaders[ID].loadFromFile(PathVert, PathFrag))
             Engine::ExitMissingData();
 
-#ifdef _DEBUG
+#ifdef DEBUG_GAME
 
         std::cout << " + Load Shader Success: " << PathVert << "  " << PathFrag << std::endl;
 

@@ -6,21 +6,21 @@
 int main(int argc, char* argv[])
 {
     
-#ifdef _DEBUG
+#ifdef DEBUG_GAME
 
     #ifdef UNICODE
 
-    SetConsoleTitle(L"Chiến Tranh Vũ Trụ");
+        SetConsoleTitle(L"Chiến Tranh Vũ Trụ");
 
     #else
 
-    SetConsoleTitle("Space War");
+        SetConsoleTitle("Space War");
 
     #endif
 
-    Engine::SetSizeWindow(80, 30);
+        Engine::SetSizeWindow(80, 30);
 
-    Engine::HideCursor();
+        Engine::HideCursor();
 
 #endif
 

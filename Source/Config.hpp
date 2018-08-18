@@ -82,6 +82,13 @@
 #define Screen_Play_Width_Max        4500
 #define Screen_Play_Height_Max       2750
 
+//   Debug game
+#if defined(_DEBUG) && defined (_WIN32)
+
+    #define DEBUG_GAME
+
+#endif
+
 
 //   Define Language
 #if defined(UNICODE)            //  Vietnamese

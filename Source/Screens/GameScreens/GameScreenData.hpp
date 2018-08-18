@@ -21,6 +21,8 @@ namespace Sw
 
         sf::View               m_view;
 
+        Engine::QuadTree*      m_quadtree;
+
         Player*                m_player;
 
         b2World*               m_world;

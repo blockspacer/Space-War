@@ -8,7 +8,7 @@
 
 #include <SFML/Graphics.hpp>
 #include <vector>
-#include "../../Entity/BaseEntity/BaseEntity.hpp"
+#include "../../Entity/EntityManager.hpp"
 #include "../Graphics/FrameBox.hpp"
 #include "../../Config.hpp"
 
@@ -42,6 +42,12 @@ namespace Engine
         QuadTree*                     m_node_3;
         QuadTree*                     m_node_4;
 
+#ifdef DEBUG_GAME
+
+        FrameBox                       m_box;
+
+#endif
+
 
         std::vector<Sw::EntityPtr>*   m_list_entity;
 
@@ -56,9 +62,14 @@ namespace Engine
         //   Clear all nodes
         void clear();
 
+        //   Insert a new Entity
+        void insertEntity(Sw::EntityPtr entity);
 
+#ifdef DEBUG_GAME
 
+        void draw(sf::RenderTarget& target);
 
+#endif
 
         //   Creat a new Quadtree
         static QuadTree* create(sf::FloatRect region);

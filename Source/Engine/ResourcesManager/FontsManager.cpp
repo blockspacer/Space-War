@@ -19,7 +19,7 @@ namespace Engine
         if (!this->m_font[ID].loadFromFile(Path))
             Engine::ExitMissingData();
 
-#ifdef _DEBUG
+#ifdef DEBUG_GAME
 
         std::cout << " + Load Font Success:    " << Path << std::endl;
 

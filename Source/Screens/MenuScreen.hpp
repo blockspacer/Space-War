@@ -14,6 +14,7 @@
 #include "SettingScreen.hpp"
 #include "ScreenData.hpp"
 #include "../Engine/ScreenManager/Screen.hpp"
+#include "../Entity/EntityManager.hpp"
 #include "../Config.hpp"
 #include "../Icon.hpp"
 

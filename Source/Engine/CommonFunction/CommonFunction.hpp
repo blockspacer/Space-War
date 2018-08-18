@@ -39,7 +39,7 @@ namespace Engine
 
     }
 
-#if defined(_DEBUG) && defined(_WIN32)
+#ifdef DEBUG_GAME
 
     inline void SetTextColor(int color)
     {
