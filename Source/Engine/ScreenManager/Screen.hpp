@@ -6,10 +6,22 @@
 #ifndef _SpaceWar_Screen_HPP_
 #define _SpaceWar_Screen_HPP_
 
+#include <SFML/System.hpp>
+#include "../../Config.hpp"
+
 namespace Engine
 {
     class Screen
     {
+#ifdef DEBUG_GAME
+
+    protected:
+        sf::Clock                   m_timer_show_quadtree;
+
+        bool                        m_show_quadtree;
+
+#endif
+
     public:
         virtual ~Screen() = default;
 

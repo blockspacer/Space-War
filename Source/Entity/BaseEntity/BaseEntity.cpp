@@ -9,16 +9,23 @@ namespace Sw
 {
     
     BaseEntity::BaseEntity() :
-        m_currentHP(0),
-        m_maxHP(0),
-        m_speedMove(0.f)
+        m_speedMove(0.f),
+        m_isDie(false)
+    {
+    }
+
+    /////////////////////////////////////////////////////////
+
+    BaseEntity::BaseEntity(float speedMove) :
+        m_speedMove(speedMove)
     {
     }
 
     /////////////////////////////////////////////////////////
 
     BaseEntity::BaseEntity(const sf::Texture& texture, const sf::IntRect& rectangle) :
-        Sprite(texture, rectangle)
+        Sprite(texture, rectangle),
+        m_isDie(false)
     {
     }
 
@@ -34,5 +41,12 @@ namespace Sw
     const Engine::Hitbox* BaseEntity::getHitbox() const
     {
         return &this->m_hitbox;
+    }
+
+    /////////////////////////////////////////////////////////
+
+    bool BaseEntity::isDie() const
+    {
+        return this->m_isDie;
     }
 }

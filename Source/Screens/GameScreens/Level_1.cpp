@@ -15,6 +15,13 @@ namespace Sw
         EntityManager::getInstance()->getListEntity()->push_back(this->m_data_game->m_player);
 
         this->m_data_game->m_quadtree = Engine::QuadTree::create(sf::FloatRect(0.f, 0.f, Screen_Width * 5, Screen_Height * 5));
+
+#ifdef DEBUG_GAME
+
+        this->m_show_quadtree = false;
+
+#endif
+
     }
 
     //////////////////////////////////////////////
@@ -31,6 +38,8 @@ namespace Sw
         else if (this->m_data_game->m_view.getCenter().y >= Screen_Play_Height_Max - 200.f)
             this->m_data_game->m_view.setCenter(this->m_data_game->m_view.getCenter().x, Screen_Play_Height_Max - 200.f);
     }
+
+    //////////////////////////////////////////////
 
     void Level_1::update()
     {
@@ -53,12 +62,7 @@ namespace Sw
 
     void Level_1::draw()
     {
-
-#ifndef DEBUG_GAME
-
         this->m_data->m_window.draw(this->m_data_game->m_background);
-
-#endif
 
         this->m_data->m_gui.draw();
 
@@ -68,7 +72,15 @@ namespace Sw
 
 #ifdef DEBUG_GAME
 
-        this->m_data_game->m_quadtree->draw(this->m_data->m_window);
+        if (this->m_show_quadtree)
+            this->m_data_game->m_quadtree->draw(this->m_data->m_window);
+
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::F1) && this->m_data->m_window.hasFocus() && this->m_timer_show_quadtree.getElapsedTime().asSeconds() > 0.2f)
+        {
+            this->m_show_quadtree = !this->m_show_quadtree;
+
+            this->m_timer_show_quadtree.restart();
+        }
 
 #endif
 
