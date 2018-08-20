@@ -18,6 +18,11 @@ namespace Sw
     private:
         sf::Sprite               m_gun;
 
+    private:
+        void control();
+
+        void setValueafterControl();
+
     public:
         Player() = default;
         Player(const sf::Texture& texture, const sf::Texture& textureGun);

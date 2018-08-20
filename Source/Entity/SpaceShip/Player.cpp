@@ -16,6 +16,8 @@ namespace Sw
         this->m_gun.setOrigin(this->m_gun.getGlobalBounds().width / 2, 30.f);
 
         this->m_speedMove = 0.5f;
+        this->m_path_angle = 0.0f;
+        this->m_path_temp = sf::Vector2f(0.5f, 0.f);
 
         this->setPosition(Screen_Play_Width_Max / 2, Screen_Play_Height_Max / 2);
         this->setRotation(90.f);
@@ -23,13 +25,21 @@ namespace Sw
 
     /////////////////////////////////////////////////////////////
 
-    void Player::update()
+    void Player::control()
     {
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A) || sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Left))
-            this->rotate(-8.f);
-        
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D) || sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Right))
-            this->rotate(8.f);
+        {
+            this->rotate(-10.f);
+
+            this->m_path_angle = -1.f;
+        }
+        else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D) || sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Right))
+        {
+            this->rotate(10.f);
+
+            this->m_path_angle = 1.f;
+        }
+        else this->m_path_angle *= this->m_inertia;
 
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W) || sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Up))
         {
@@ -38,14 +48,19 @@ namespace Sw
             this->m_path_temp.y -= float(Engine::Math::cos((int)this->getRotation()) * this->m_speedMove);
         }
         else this->m_path_temp *= this->m_inertia;
+    }
 
+    /////////////////////////////////////////////////////////////
+
+    void Player::setValueafterControl()
+    {
         this->m_currentSpeed = std::sqrt(this->m_path_temp.x * this->m_path_temp.x + this->m_path_temp.y * this->m_path_temp.y);
-        
+
         if (this->m_currentSpeed > this->m_maxSpeed)
             this->m_path_temp *= float(this->m_maxSpeed / this->m_currentSpeed);
 
-
         this->setPosition(this->getPosition() + this->m_path_temp);
+        this->setRotation(this->getRotation() + this->m_path_angle);
 
         if (this->getPosition().x < Screen_Play_Width_Min + 20.f)
             this->setPosition(Screen_Play_Width_Min + 20.f, this->getPosition().y);
@@ -58,6 +73,18 @@ namespace Sw
             this->setPosition(this->getPosition().x, Screen_Play_Height_Max - 20.f);
 
         this->m_gun.setPosition(this->getPosition());
+    }
+
+    /////////////////////////////////////////////////////////////
+
+    void Player::update()
+    {
+        //   Control Player
+        this->control();
+
+
+        //   Set Value after Control Player
+        this->setValueafterControl();
     }
 
     /////////////////////////////////////////////////////////////

@@ -26,6 +26,8 @@ namespace Sw
 
         float                   m_inertia;
 
+        float                   m_path_angle;
+
         sf::Vector2f            m_path_temp;
 
     public:
