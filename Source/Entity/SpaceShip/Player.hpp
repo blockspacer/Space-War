@@ -7,7 +7,7 @@
 #define _SpaceWar_Player_HPP_
 
 #include <SFML/Graphics.hpp>
-#include "../../Engine/Math/Math.hpp"
+#include "../../Engine/Engine.hpp"
 #include "../../Config.hpp"
 #include "SpaceShip.hpp"
 
@@ -17,6 +17,8 @@ namespace Sw
     {
     private:
         sf::Sprite               m_gun;
+
+        sf::Clock                m_clock;
 
     private:
         void control();
@@ -35,6 +37,9 @@ namespace Sw
 
         void setPositionMouse(sf::Vector2i position);
 
+        bool isShoot();
+
+        float getAngleGun();
     };
 }
 

@@ -41,21 +41,52 @@ namespace Sw
 
     //////////////////////////////////////////////
 
+    void Level_1::updateEntity()
+    {
+        //   Update Entity
+        for (auto it : *EntityManager::getInstance()->getListEntity())
+            it->update();
+
+        //   Delete Entity
+        for (auto it = EntityManager::getInstance()->getListEntity()->begin(); it != EntityManager::getInstance()->getListEntity()->end(); it++)
+        {
+            if ((*it)->isDie())
+            {
+                EntityManager::getInstance()->getListEntity()->erase(it);
+
+                break;
+            }
+        }
+    }
+
+    //////////////////////////////////////////////
+
     void Level_1::update()
     {
         if (this->m_data->m_window.hasFocus())
         {
-            this->m_data_game->m_player->update();
-            this->m_data_game->m_player->setPositionMouse(sf::Mouse::getPosition(this->m_data->m_window) + 
+            //   Update gun of player
+            this->m_data_game->m_player->setPositionMouse(sf::Mouse::getPosition(this->m_data->m_window) +
                 sf::Vector2i(int(this->m_data_game->m_view.getCenter().x - this->m_data->m_window.getDefaultView().getCenter().x),
                     int(this->m_data_game->m_view.getCenter().y - this->m_data->m_window.getDefaultView().getCenter().y)));
+
+
+            //   Player shoot
+            if (this->m_data_game->m_player->isShoot())
+                EntityManager::getInstance()->getListEntity()->push_back(new LightBullet(Engine::TexturesManager::getInstance()->get(16),
+                    this->m_data_game->m_player->getPosition(), this->m_data_game->m_player->getAngleGun()));
+
+
+            //   Update Entity
+            this->updateEntity();
+
+
+            this->m_data_game->m_view.setCenter(this->m_data_game->m_player->getPosition());
+
+            this->setView();
+
+            this->m_data->m_window.setView(this->m_data_game->m_view);
         }
-
-        this->m_data_game->m_view.setCenter(this->m_data_game->m_player->getPosition());
-
-        this->setView();
-
-        this->m_data->m_window.setView(this->m_data_game->m_view);
     }
 
     //////////////////////////////////////////////
@@ -66,8 +97,13 @@ namespace Sw
 
         this->m_data->m_gui.draw();
 
-        this->m_data->m_window.draw(*this->m_data_game->m_player);
 
+        //   Draw Entity
+        for (auto it : *Sw::EntityManager::getInstance()->getListEntity())
+            this->m_data->m_window.draw(*it);
+
+
+        //   Draw gun of player
         this->m_data_game->m_player->drawGun(this->m_data->m_window);
 
 #ifdef DEBUG_GAME

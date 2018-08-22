@@ -17,11 +17,11 @@ namespace Sw
     class EntityManager : public Engine::Singleton<EntityManager>
     {
     private:
-        std::vector<EntityPtr>*        m_list_entity;
+        std::vector<EntityPtr>*        m_list_entity = nullptr;
 
     public:
         EntityManager();
-        ~EntityManager() = default;
+        ~EntityManager();
 
 
         std::vector<EntityPtr>* getListEntity();

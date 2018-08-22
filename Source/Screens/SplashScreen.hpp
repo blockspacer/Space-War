@@ -7,7 +7,6 @@
 #define _SpaceWar_SplashScreen_HPP_
 
 #include <SFML/Graphics.hpp>
-#include "../Engine/ScreenManager/Screen.hpp"
 #include "ScreenData.hpp"
 #include "MenuScreen.hpp"
 #include "../Config.hpp"

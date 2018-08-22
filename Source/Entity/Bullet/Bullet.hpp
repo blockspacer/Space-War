@@ -24,6 +24,8 @@ namespace Sw
         Bullet();
         Bullet(sf::Vector2f position, float angle, int damage);
 
+
+        int getDamage() const;
     };
 }
 

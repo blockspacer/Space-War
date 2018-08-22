@@ -24,9 +24,9 @@ namespace Sw
 
 #else
 
-        this->m_title.setTexture(this->m_data->m_textures->get(6));
+        this->m_title.setTexture(Engine::TexturesManager::getInstance()->get(6));
 
-        this->m_infor.setTexture(this->m_data->m_textures->get(10));
+        this->m_infor.setTexture(Engine::TexturesManager::getInstance()->get(10));
 
 #endif
         this->m_title.setOrigin(this->m_title.getGlobalBounds().width / 2, this->m_title.getGlobalBounds().height / 2);

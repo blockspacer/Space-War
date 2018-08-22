@@ -7,7 +7,8 @@
 
 namespace Sw
 {
-    Player::Player(const sf::Texture& texture, const sf::Texture& textureGun)
+    Player::Player(const sf::Texture& texture, const sf::Texture& textureGun) :
+        SpaceShip(10.f, 0.8f, 0.95f, 200)
     {
         this->setTexture(texture);
         this->m_gun.setTexture(textureGun);
@@ -15,7 +16,7 @@ namespace Sw
         this->setOrigin(this->getGlobalBounds().width / 2, 35.f);
         this->m_gun.setOrigin(this->m_gun.getGlobalBounds().width / 2, 30.f);
 
-        this->m_speedMove = 0.5f;
+        this->m_speedMove = 0.2f;
         this->m_path_angle = 0.0f;
         this->m_path_temp = sf::Vector2f(0.5f, 0.f);
 
@@ -119,5 +120,28 @@ namespace Sw
         }
 
         this->m_gun.setRotation(angle);
+    }
+
+    /////////////////////////////////////////////////////////////
+
+    bool Player::isShoot()
+    {
+        if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left) && this->m_clock.getElapsedTime().asSeconds() >= this->m_timeReload)
+        {
+            Engine::AudioManager::getInstance()->getSound(1)->play();
+
+            this->m_clock.restart();
+
+            return true;
+        }
+
+        return false;
+    }
+
+    /////////////////////////////////////////////////////////////
+
+    float Player::getAngleGun()
+    {
+        return this->m_gun.getRotation();
     }
 }

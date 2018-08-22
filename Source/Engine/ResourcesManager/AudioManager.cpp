@@ -49,7 +49,7 @@ namespace Engine
 
 #ifdef DEBUG_GAME
 
-        std::cout << " + Load Sound Success: " << Path << std::endl;
+        std::cout << " + Load Sound Success:   " << Path << std::endl;
 
 #endif
 

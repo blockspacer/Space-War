@@ -8,7 +8,6 @@
 
 #include <SFML/Graphics.hpp>
 #include <TGUI/TGUI.hpp>
-#include "../Engine/ScreenManager/Screen.hpp"
 #include "../TinyXML/tinyxml2.h"
 #include "ScreenData.hpp"
 #include "../Config.hpp"

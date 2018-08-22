@@ -69,13 +69,6 @@ namespace Engine
 
     //////////////////////////////////////////////////////////
 
-    bool Hitbox::checkCollision(const Hitbox& hitbox)
-    {
-        return true;
-    }
-
-    //////////////////////////////////////////////////////////
-
     void Hitbox::setSize(sf::Vector2f size)
     {
         this->m_size = size;

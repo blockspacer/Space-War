@@ -1,6 +1,7 @@
 <?xml version = "1.0" encoding = "UTF-8"?>
 
 <Textures>
+	<!--Texture of Screens-->
 	<Texture ID = "1">Assets/Textures/Screens/SplashScreen.jpg</Texture>
 	<Texture ID = "2">Assets/Textures/Screens/TitleGameVie.png</Texture>
 	<Texture ID = "3">Assets/Textures/Screens/TitleGameEng.png</Texture>
@@ -17,4 +18,6 @@
 	<!--Texture of SpaceShip-->
 	<Texture ID = "14">Assets/Textures/SpaceShip/TailSpaceShip.png</Texture>
 	<Texture ID = "15">Assets/Textures/SpaceShip/GunSpaceShip.png</Texture>
+	<!--Texture of Bullets-->
+	<Texture ID = "16">Assets/Textures/Bullets/LightBullet.png</Texture>
 </Textures>>

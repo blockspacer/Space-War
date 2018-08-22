@@ -9,12 +9,8 @@
 #include <SFML/Graphics.hpp>
 #include <TGUI/TGUI.hpp>
 #include <memory>
-#include "../Engine/ScreenManager/ScreenManager.hpp"
-#include "../Engine/Languages/LanguagesManager.hpp"
-#include "../Engine/ResourcesManager/AudioManager.hpp"
-#include "../Engine/ResourcesManager/FontsManager.hpp"
-#include "../Engine/ResourcesManager/ShadersManager.hpp"
-#include "../Engine/ResourcesManager/TexturesManager.hpp"
+#include "../Engine/Engine.hpp"
+#include "../Entity/Entity.hpp"
 #include "../Config.hpp"
 
 namespace Sw

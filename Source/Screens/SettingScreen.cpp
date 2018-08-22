@@ -25,9 +25,9 @@ namespace Sw
 
 #else
 
-        this->m_title.setTexture(this->m_data->m_textures->get(8));
+        this->m_title.setTexture(Engine::TexturesManager::getInstance()->get(8));
 
-        this->m_set.setTexture(this->m_data->m_textures->get(12));
+        this->m_set.setTexture(Engine::TexturesManager::getInstance()->get(12));
 
 #endif
 
@@ -65,11 +65,11 @@ namespace Sw
         this->m_button_back->setTextSize(20);
         this->m_button_back->setPosition(50.f, 480.f);
         this->m_button_back->showWithEffect(tgui::ShowAnimationType::Fade, sf::seconds(0.3f));
-        this->m_button_back->connect("pressed", [&]() { 
+        this->m_button_back->connect("pressed", [&]() {
 
             this->saveData();
 
-            Engine::ScreenManager::getInstance()->removeScreen(); 
+            Engine::ScreenManager::getInstance()->removeScreen();
         });
 
 
@@ -89,7 +89,7 @@ namespace Sw
 
         this->m_data->m_gui.add(this->m_slider_sound);
     }
-    
+
     ///////////////////////////////////////////////////
 
     void SettingScreen::saveData()
@@ -97,7 +97,7 @@ namespace Sw
         tinyxml2::XMLDocument document_music;
 
         if (document_music.LoadFile("Data/Musics.xml") == tinyxml2::XMLError::XML_ERROR_FILE_NOT_FOUND)
-            exit(EXIT_FAILURE);
+            Engine::ExitMissingData();
 
 
         int volume_music = (int)this->m_slider_music->getValue();
@@ -112,7 +112,7 @@ namespace Sw
         tinyxml2::XMLDocument document_sound;
 
         if (document_sound.LoadFile("Data/Sounds.xml") == tinyxml2::XMLError::XML_ERROR_FILE_NOT_FOUND)
-            exit(EXIT_FAILURE);
+            Engine::ExitMissingData();
 
 
         int volume_sound = (int)this->m_slider_music->getValue();
@@ -126,7 +126,7 @@ namespace Sw
 
     void SettingScreen::update()
     {
-        
+
         if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left) && this->m_data->m_window.hasFocus())
         {
             this->m_value_music.setString(To_SwString((int)this->m_slider_music->getValue()));

@@ -1,4 +1,6 @@
 <?xml version = "1.0" encoding = "UTF-8"?>
 <Volume volume="100"/>
 
-<Sounds/>
+<Sounds>
+	<Sounds ID = "1">Assets/Audio/ShootLightBullet.ogg</Sounds>
+</Sounds>

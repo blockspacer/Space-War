@@ -35,4 +35,11 @@ namespace Sw
 
         this->setPosition(position);
     }
+
+    ///////////////////////////////////////////////
+
+    int Bullet::getDamage() const
+    {
+        return this->m_damage;
+    }
 }

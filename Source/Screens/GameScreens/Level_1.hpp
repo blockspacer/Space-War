@@ -8,7 +8,6 @@
 
 #include <SFML/Graphics.hpp>
 #include "GameScreenData.hpp"
-#include "../../Engine/ScreenManager/Screen.hpp"
 #include "../ScreenData.hpp"
 #include "../../Config.hpp"
 
@@ -23,6 +22,8 @@ namespace Sw
 
     private:
         void setView();
+
+        void updateEntity();
 
     public:
         Level_1(ScreenDataPtr data, GameScreenDataPtr data_game);

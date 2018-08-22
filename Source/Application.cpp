@@ -97,7 +97,7 @@ namespace Sw
         tinyxml2::XMLDocument document;
 
         if (document.LoadFile("Data/Textures.xml") == tinyxml2::XMLError::XML_ERROR_FILE_NOT_FOUND)
-            exit(EXIT_FAILURE);
+            Engine::ExitMissingData();
 
         tinyxml2::XMLElement* root = document.FirstChildElement();
 
@@ -118,7 +118,7 @@ namespace Sw
         tinyxml2::XMLDocument document;
         
         if (document.LoadFile("Data/Fonts.xml") == tinyxml2::XMLError::XML_ERROR_FILE_NOT_FOUND)
-            exit(EXIT_FAILURE);
+            Engine::ExitMissingData();
 
         tinyxml2::XMLElement* root = document.FirstChildElement();
 
@@ -139,7 +139,7 @@ namespace Sw
         tinyxml2::XMLDocument document_music;
 
         if (document_music.LoadFile("Data/Musics.xml") == tinyxml2::XMLError::XML_ERROR_FILE_NOT_FOUND)
-            exit(EXIT_FAILURE);
+            Engine::ExitMissingData();
 
         tinyxml2::XMLElement* Volume_music = document_music.FirstChildElement();
         
@@ -163,7 +163,7 @@ namespace Sw
         tinyxml2::XMLDocument document_sound;
 
         if (document_sound.LoadFile("Data/Sounds.xml") == tinyxml2::XMLError::XML_ERROR_FILE_NOT_FOUND)
-            exit(EXIT_FAILURE);
+            Engine::ExitMissingData();
 
         tinyxml2::XMLElement* Volume_sound = document_sound.FirstChildElement();
 

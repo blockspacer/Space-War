@@ -8,8 +8,6 @@
 
 #include <SFML/Graphics.hpp>
 #include <TGUI/TGUI.hpp>
-#include "../Engine/ResourcesManager/InputsManager.hpp"
-#include "../Engine/ScreenManager/Screen.hpp"
 #include "ScreenData.hpp"
 #include "../Config.hpp"
 

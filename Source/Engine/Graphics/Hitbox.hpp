@@ -40,10 +40,6 @@ namespace Engine
         sf::FloatRect getGlobalBounds() const;
 
 
-        //   This function is used to check collision between two Hitbox
-        bool checkCollision(const Hitbox& hitbox);
-
-
         //   Delete functions
         void setScale(float factorX, float factorY) = delete;
         void setScale(const sf::Vector2f& factors) = delete;
